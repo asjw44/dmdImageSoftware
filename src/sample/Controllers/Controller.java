@@ -600,8 +600,9 @@ public class Controller implements Initializable {
     private void help(){
         Alert about = new Alert(Alert.AlertType.INFORMATION);
         about.setTitle("About");
-        about.setHeaderText("DMD Image Software\nCreated by Andrew Wood");
-        about.setContentText("Version:\t0.1.1\n\nLibraries used:\nxStream 1.4.10");
+        about.setHeaderText("DMD Image Software\nCreated by Andrew Wood. Copyright 2018.\n\n" +
+                "Created for use at the Optoelectronics Research Centre,\nSouthampton University");
+        about.setContentText("Version:\t0.1.2\n\nLibraries used:\nxStream 1.4.10");
         about.showAndWait();
     }
 
