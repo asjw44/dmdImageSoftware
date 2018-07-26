@@ -95,6 +95,12 @@ public class Controller implements Initializable {
                 new FileChooser.ExtensionFilter("XML","*.xml"),
                 new FileChooser.ExtensionFilter("All files","*.*")
         );
+
+        String os = System.getProperty("os.name");
+        if(os.contains("Mac")){
+            WriteBMP.imageDirectory = System.getProperty("user.dir") + "/";
+        }
+
         fileDialog.setInitialDirectory(new File(WriteBMP.imageDirectory));
 
         //***************************************************************************
