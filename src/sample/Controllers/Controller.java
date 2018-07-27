@@ -250,6 +250,12 @@ public class Controller implements Initializable {
         }
     }
 
+    /**
+     * Write creates the images. It first sets the scale type, then it used the <code>Iterator</code> builder to create the images.
+     * This method returns an enum whose value determines whether the image creation was successful or not.
+     * If it wasn't successful, it will display an alert saying what went wrong.
+     */
+
     private void write(){
         String name = baseNameTextField.getText();
 
@@ -505,6 +511,15 @@ public class Controller implements Initializable {
             alert.setContentText("There was an error while saving the file.");
         }
     }
+
+    /**
+     * This gets all the fields on the UI and stores them in a class (<code>SaveData</code>).
+     * Integers boxes that have no input (ie "") are set as "-1" using <code>setTextField</code>.
+     * The code loading the data then knows that this has no input
+     * It then uses XStream to parse this data into an xml string, along with the alias' for the classes set below.
+     *
+     * @return The xml string of the <code>SaveData</code> class.
+     */
 
     private String getSaveStateXML(){
         SaveData save = new SaveData();
