@@ -368,7 +368,12 @@ public class Controller implements Initializable {
         directoryChooser.setInitialDirectory(new File(WriteBMP.imageDirectory));
         File dir = directoryChooser.showDialog(null);
         if(dir != null){
-            WriteBMP.imageDirectory = dir.getPath() + "\\";
+            String osPath = "\\";
+            String os = System.getProperty("os.name");
+            if(os.contains("Mac")){
+                osPath = "/";
+            }
+            WriteBMP.imageDirectory = dir.getPath() + osPath;
             imagePath.setText("Image path: " + WriteBMP.imageDirectory);
         }
     }
