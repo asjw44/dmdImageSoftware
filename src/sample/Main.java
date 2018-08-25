@@ -15,7 +15,7 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("Controllers/sample.fxml"));
         primaryStage.setTitle("DMD Image Creation");
-        primaryStage.setScene(new Scene(root, 700, 490));
+        primaryStage.setScene(new Scene(root, 700, 540));
         primaryStage.setOnCloseRequest(event -> Platform.exit());
         primaryStage.show();
 

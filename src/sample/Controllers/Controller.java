@@ -57,6 +57,8 @@ public class Controller implements Initializable {
     @FXML private MenuItem menuEditPaste;
     @FXML private MenuItem menuEditDelete;
 
+    @FXML private MenuItem menuViewCursor;
+
     @FXML private MenuItem menuHelpAbout;
 
     //Interface
@@ -80,11 +82,13 @@ public class Controller implements Initializable {
     @FXML private TextField translateY;
     @FXML private TextField dWidth;
     @FXML private TextField dHeight;
+    @FXML private TextField dRadius;
 
     @FXML private CheckBox translateXCheckbox;
     @FXML private CheckBox translateYCheckbox;
     @FXML private CheckBox dWidthCheckbox;
     @FXML private CheckBox dHeightCheckbox;
+    @FXML private CheckBox dRadiusCheckbox;
     @FXML private CheckBox centerShapes;
     @FXML private CheckBox deployDMDCheckbox;
     @FXML private Label rescaleTypeLabel;
@@ -232,6 +236,7 @@ public class Controller implements Initializable {
         translateY.textProperty().addListener((observable, oldValue, newValue) -> checkNumber(translateY,newValue));
         dWidth.textProperty().addListener((observable, oldValue, newValue) -> checkNumber(dWidth,newValue));
         dHeight.textProperty().addListener((observable, oldValue, newValue) -> checkNumber(dHeight,newValue));
+        dRadius.textProperty().addListener(((observable, oldValue, newValue) -> checkNumber(dRadius,newValue)));
 
 
         final KeyCombination ctrlN = new KeyCodeCombination(KeyCode.N,KeyCombination.CONTROL_DOWN);
@@ -301,6 +306,8 @@ public class Controller implements Initializable {
                         dHeightCheckbox.isSelected() ? -1 * Integer.parseInt(dHeight.getText()) : Integer.parseInt(dHeight.getText())
                 ).setWidthChange(
                         dWidthCheckbox.isSelected() ? -1 * Integer.parseInt(dWidth.getText()) : Integer.parseInt(dWidth.getText())
+                ).setDRadiusChange(
+                        dRadiusCheckbox.isSelected() ? -1 * Integer.parseInt(dRadius.getText()) : Integer.parseInt(dRadius.getText())
                 ).centerShape(centerShapes.isSelected())
                 .showShapeInfo()
                 .setRescaleType(rescaleType)
@@ -411,11 +418,13 @@ public class Controller implements Initializable {
         translateY.setText("0");
         dWidth.setText("0");
         dHeight.setText("0");
+        dRadius.setText("0");
 
         translateXCheckbox.setSelected(false);
         translateYCheckbox.setSelected(false);
         dWidthCheckbox.setSelected(false);
         dHeightCheckbox.setSelected(false);
+        dRadiusCheckbox.setSelected(false);
         centerShapes.setSelected(false);
         deployDMDCheckbox.setSelected(false);
     }
@@ -470,6 +479,7 @@ public class Controller implements Initializable {
             setTextField(translateY, load.getTranslateY());
             setTextField(dWidth, load.getdWidth());
             setTextField(dHeight, load.getdHeight());
+            setTextField(dRadius, load.getdRadius());
 
             translateXCheckbox.setSelected(load.isTranslateXCheckbox());
             translateYCheckbox.setSelected(load.isTranslateYCheckbox());
@@ -563,6 +573,7 @@ public class Controller implements Initializable {
         save.setTranslateY(getInt2(translateY));
         save.setdWidth(getInt2(dWidth));
         save.setdHeight(getInt2(dHeight));
+        save.setdRadius(getInt2(dRadius));
 
         save.setTranslateXCheckbox(translateXCheckbox.isSelected());
         save.setTranslateYCheckbox(translateYCheckbox.isSelected());
@@ -635,7 +646,7 @@ public class Controller implements Initializable {
         about.setTitle("About");
         about.setHeaderText("DMD Image Software\nCreated by Andrew Wood. Copyright 2018.\n\n" +
                 "Created for use at the Optoelectronics Research Centre,\nSouthampton University");
-        about.setContentText("Version:\t0.1.2\n\nLibraries used:\nxStream 1.4.10");
+        about.setContentText("Version:\t0.2.1\n\nLibraries used:\nxStream 1.4.10");
         about.showAndWait();
     }
 

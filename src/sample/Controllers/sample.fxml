@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller">
    <children>
       <MenuBar prefHeight="25.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
@@ -37,6 +37,11 @@
               <MenuItem fx:id="menuEditDelete" mnemonicParsing="false" text="Delete" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="View">
+              <items>
+                <MenuItem fx:id="menuViewCursor" mnemonicParsing="false" text="Cursor" />
+              </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem fx:id="menuHelpAbout" mnemonicParsing="false" text="About" />
@@ -115,6 +120,11 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
+                  <Label contentDisplay="CENTER" layoutX="141.0" layoutY="14.0" prefHeight="32.0" prefWidth="95.0" text="Iteration" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
                   <TextField fx:id="numOfImages" layoutX="161.0" layoutY="64.0" prefHeight="25.0" prefWidth="88.0" text="1" />
                   <TextField fx:id="translateX" layoutX="161.0" layoutY="103.0" prefHeight="25.0" prefWidth="88.0" text="0" />
                   <CheckBox fx:id="translateXCheckbox" layoutX="259.0" layoutY="107.0" mnemonicParsing="false" text="Translate left" />
@@ -149,38 +159,40 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <CheckBox fx:id="centerShapes" layoutX="16.0" layoutY="269.0" mnemonicParsing="false" text="Center shapes to the first">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </CheckBox>
-                  <Label contentDisplay="CENTER" layoutX="141.0" layoutY="14.0" prefHeight="32.0" prefWidth="95.0" text="Iteration" textAlignment="CENTER">
-                     <font>
-                        <Font name="System Bold" size="22.0" />
-                     </font>
-                  </Label>
-                  <CheckBox fx:id="deployDMDCheckbox" layoutX="16.0" layoutY="308.0" mnemonicParsing="false" text="Deploy for DMD">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </CheckBox>
-                  <ChoiceBox fx:id="rescaleTypePicker" layoutX="161.0" layoutY="340.0" prefWidth="150.0" visible="false" />
-                  <Label fx:id="rescaleTypeLabel" layoutX="16.0" layoutY="342.0" text="Rescaletype" visible="false">
+                  <Label layoutX="13.0" layoutY="274.0" text="Change in dRadius">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Button fx:id="writeButton" layoutX="312.0" layoutY="423.0" mnemonicParsing="false" text="Write">
+                  <TextField fx:id="dRadius" layoutX="161.0" layoutY="272.0" prefHeight="25.0" prefWidth="88.0" text="0" />
+                  <CheckBox fx:id="dRadiusCheckbox" layoutX="259.0" layoutY="276.0" mnemonicParsing="false" text="Get smaller" />
+                  <CheckBox fx:id="centerShapes" layoutX="20.0" layoutY="314.0" mnemonicParsing="false" text="Center shapes to the first">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="deployDMDCheckbox" layoutX="20.0" layoutY="353.0" mnemonicParsing="false" text="Deploy for DMD">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </CheckBox>
+                  <ChoiceBox fx:id="rescaleTypePicker" layoutX="165.0" layoutY="385.0" prefWidth="150.0" visible="false" />
+                  <Label fx:id="rescaleTypeLabel" layoutX="20.0" layoutY="387.0" text="Rescaletype" visible="false">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="imagePath" alignment="TOP_LEFT" layoutX="9.0" layoutY="430.0" prefHeight="70.0" prefWidth="306.0" text="Image path: C://Users/Andrew/Documents" wrapText="true">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="imagePathButton" layoutX="338.0" layoutY="425.0" mnemonicParsing="false" text="...">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Label fx:id="imagePath" alignment="TOP_LEFT" layoutX="5.0" layoutY="385.0" prefHeight="70.0" prefWidth="306.0" text="Image path: C://Users/Andrew/Documents" wrapText="true">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="imagePathButton" layoutX="334.0" layoutY="380.0" mnemonicParsing="false" text="...">
+                  <Button fx:id="writeButton" layoutX="312.0" layoutY="465.0" mnemonicParsing="false" text="Write">
                      <font>
                         <Font size="15.0" />
                      </font>

@@ -29,6 +29,7 @@ public class SaveData {
     private int translateY;
     private int dWidth;
     private int dHeight;
+    private int dRadius;
 
     private boolean translateXCheckbox;
     private boolean translateYCheckbox;
@@ -205,6 +206,14 @@ public class SaveData {
 
     public void setdHeightCheckbox(boolean dHeightCheckbox) {
         this.dHeightCheckbox = dHeightCheckbox;
+    }
+
+    public int getdRadius() {
+        return dRadius;
+    }
+
+    public void setdRadius(int dRadius) {
+        this.dRadius = dRadius;
     }
 
     public boolean isCenterShapes() {
