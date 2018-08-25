@@ -3,6 +3,7 @@ package sample.Util;
 import sample.Model.BMPData;
 import sample.Model.Canvas;
 import sample.Model.Shapes.AbstractShape;
+import sample.Model.Shapes.Doughnut;
 import sample.Model.Shapes.RGB;
 
 import java.io.IOException;
@@ -18,6 +19,7 @@ public class Iterator {
     private int dy = 0;
     private int dWidth = 0;
     private int dHeight = 0;
+    private int dRadius = 0;
     private int width;
     private int height;
 
@@ -57,6 +59,11 @@ public class Iterator {
 
     public Iterator setHeightChange(int dHeight){
         this.dHeight = dHeight;
+        return this;
+    }
+
+    public Iterator setDRadiusChange(int dRadius){
+        this.dRadius = dRadius;
         return this;
     }
 
@@ -124,6 +131,14 @@ public class Iterator {
                     redShape.changeWidthHeight(dWidth*(24*i+j),dHeight*(24*i+j));
                     greenShape.changeWidthHeight(dWidth*(24*i+j+8),dHeight*(24*i+j+8));
                     blueShape.changeWidthHeight(dWidth*(24*i+j+16),dHeight*(24*i+j+16));
+                }
+
+                if(Math.abs(dRadius) > 0){
+                    if(baseShape instanceof Doughnut){
+                        ((Doughnut) redShape).changeOffset(dRadius*(24*i+j));
+                        ((Doughnut) greenShape).changeOffset(dRadius*(24*i+j+8));
+                        ((Doughnut) blueShape).changeOffset(dRadius*(24*i+j+16));
+                    }
                 }
 
                 img.addShape(redShape);

@@ -50,6 +50,10 @@ public class Doughnut extends Ellipse {
         return arrayList;
     }
 
+    public void changeOffset(int dOffset){
+        this.offset += dOffset;
+    }
+
     public int getOffset() {
         return offset;
     }

@@ -8,6 +8,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
@@ -16,11 +20,14 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import sample.Model.SaveData;
 import sample.Model.Shapes.*;
+import sample.Model.Shapes.Rectangle;
 import sample.Util.Constants;
 import sample.Util.Iterator;
 import sample.Util.Hint;
 import sample.Util.WriteBMP;
 
+import java.awt.*;
+import java.awt.event.InputEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -87,6 +94,8 @@ public class Controller implements Initializable {
     @FXML private Button imagePathButton;
 
     @FXML private Button writeButton;
+
+    private ArrayList<Point> mouserPoints = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -231,6 +240,8 @@ public class Controller implements Initializable {
         final KeyCombination ctrlO = new KeyCodeCombination(KeyCode.O,KeyCombination.CONTROL_DOWN);
         final KeyCombination ctrlR = new KeyCodeCombination(KeyCode.R,KeyCombination.CONTROL_DOWN);
         final KeyCombination ctrlD  = new KeyCodeCombination(KeyCode.D,KeyCombination.CONTROL_DOWN);
+        final KeyCombination f6 = new KeyCodeCombination(KeyCode.F6);
+        final KeyCombination shiftF6 = new KeyCodeCombination(KeyCode.F6,KeyCombination.SHIFT_DOWN);
 
         menuFileNew.setAccelerator(ctrlN);
         menuFileSave.setAccelerator(ctrlS);
@@ -240,6 +251,8 @@ public class Controller implements Initializable {
         Platform.runLater(() -> {
             writeButton.getScene().getAccelerators().put(ctrlR,()-> writeButton.fire());
             writeButton.getScene().getAccelerators().put(ctrlD, () -> addStaticShapes.fire());
+            writeButton.getScene().getAccelerators().put(f6, this::addMousePoint);
+            writeButton.getScene().getAccelerators().put(shiftF6, this::activateMousePoints);
         });
 
     }
@@ -624,6 +637,26 @@ public class Controller implements Initializable {
                 "Created for use at the Optoelectronics Research Centre,\nSouthampton University");
         about.setContentText("Version:\t0.1.2\n\nLibraries used:\nxStream 1.4.10");
         about.showAndWait();
+    }
+
+    //=============================Mouse================================
+
+    private void addMousePoint(){
+        mouserPoints.add(MouseInfo.getPointerInfo().getLocation());
+    }
+
+    private void activateMousePoints(){
+        for(Point point : mouserPoints){
+            try{
+                Robot robot = new Robot();
+                robot.mouseMove(point.x,point.y);
+                robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+                robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+            }catch (AWTException e){
+                e.printStackTrace();
+            }
+
+        }
     }
 
 }
