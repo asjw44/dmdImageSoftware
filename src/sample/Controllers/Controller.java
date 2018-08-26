@@ -2,6 +2,8 @@ package sample.Controllers;
 
 import com.thoughtworks.xstream.XStream;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -39,6 +41,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     static ArrayList<AbstractShape> staticShapes = new ArrayList<>();
+    static ObservableList<Point> mousePoints = FXCollections.observableArrayList();
 
     private final FileChooser fileDialog = new FileChooser();
 
@@ -99,8 +102,6 @@ public class Controller implements Initializable {
 
     @FXML private Button writeButton;
 
-    private ArrayList<Point> mouserPoints = new ArrayList<>();
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -134,6 +135,9 @@ public class Controller implements Initializable {
         menuEditCopy.setOnAction(event -> copy());
         menuEditPaste.setOnAction(event -> paste());
         menuEditDelete.setOnAction(event -> delete());
+
+        //View
+        menuViewCursor.setOnAction(event -> showCursorMenu());
 
         //Help
         menuHelpAbout.setOnAction(event -> help());
@@ -245,19 +249,23 @@ public class Controller implements Initializable {
         final KeyCombination ctrlO = new KeyCodeCombination(KeyCode.O,KeyCombination.CONTROL_DOWN);
         final KeyCombination ctrlR = new KeyCodeCombination(KeyCode.R,KeyCombination.CONTROL_DOWN);
         final KeyCombination ctrlD  = new KeyCodeCombination(KeyCode.D,KeyCombination.CONTROL_DOWN);
+        final KeyCombination f5 = new KeyCodeCombination(KeyCode.F5);
         final KeyCombination f6 = new KeyCodeCombination(KeyCode.F6);
-        final KeyCombination shiftF6 = new KeyCodeCombination(KeyCode.F6,KeyCombination.SHIFT_DOWN);
+        final KeyCombination f7 = new KeyCodeCombination(KeyCode.F7);
+        final KeyCombination f8 = new KeyCodeCombination(KeyCode.F8);
 
         menuFileNew.setAccelerator(ctrlN);
         menuFileSave.setAccelerator(ctrlS);
         menuFileSaveAs.setAccelerator(ctrlShiftS);
         menuFileOpen.setAccelerator(ctrlO);
+        menuViewCursor.setAccelerator(f5);
 
         Platform.runLater(() -> {
             writeButton.getScene().getAccelerators().put(ctrlR,()-> writeButton.fire());
             writeButton.getScene().getAccelerators().put(ctrlD, () -> addStaticShapes.fire());
-            writeButton.getScene().getAccelerators().put(f6, this::addMousePoint);
-            writeButton.getScene().getAccelerators().put(shiftF6, this::activateMousePoints);
+            writeButton.getScene().getAccelerators().put(f6, Controller::addMousePoint);
+            writeButton.getScene().getAccelerators().put(f7, Controller::activateMousePoints);
+            writeButton.getScene().getAccelerators().put(f8, Controller::removeMousePoints);
         });
 
     }
@@ -639,6 +647,20 @@ public class Controller implements Initializable {
         }
     }
 
+    //=============================View Menu===========================
+
+    private void showCursorMenu(){
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("cursor.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("View Cursors");
+            stage.setScene(new Scene(root,300,300));
+            stage.show();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
     //=============================Help Menu===========================
 
     private void help(){
@@ -652,12 +674,12 @@ public class Controller implements Initializable {
 
     //=============================Mouse================================
 
-    private void addMousePoint(){
-        mouserPoints.add(MouseInfo.getPointerInfo().getLocation());
+    static void addMousePoint(){
+        mousePoints.add(MouseInfo.getPointerInfo().getLocation());
     }
 
-    private void activateMousePoints(){
-        for(Point point : mouserPoints){
+    static void activateMousePoints(){
+        for(Point point : mousePoints){
             try{
                 Robot robot = new Robot();
                 robot.mouseMove(point.x,point.y);
@@ -667,6 +689,12 @@ public class Controller implements Initializable {
                 e.printStackTrace();
             }
 
+        }
+    }
+
+    static void removeMousePoints(){
+        if(mousePoints.size()>0){
+            mousePoints.remove(0,mousePoints.size()-1);
         }
     }
 

@@ -37,6 +37,11 @@
               <MenuItem fx:id="menuEditDelete" mnemonicParsing="false" text="Delete" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="View">
+              <items>
+                <MenuItem fx:id="menuViewCursor" mnemonicParsing="false" text="Cursor" />
+              </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem fx:id="menuHelpAbout" mnemonicParsing="false" text="About" />
