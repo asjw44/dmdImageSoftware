@@ -111,7 +111,11 @@ public abstract class AbstractShape {
             return new Ellipse(this);
         }else if(this.getClass() == Doughnut.class){
             return new Doughnut(this, extraInfo);
-        }return null;
+        }else if(this.getClass() == SpreadFill.class){
+            return new SpreadFill(this,extraInfo);
+        }else{
+            return null;
+        }
     }
 
     public abstract String getShapeName();
