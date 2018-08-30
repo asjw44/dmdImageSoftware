@@ -159,7 +159,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="13.0" layoutY="274.0" text="Change in dRadius">
+                  <Label fx:id="dRadiusLabel" layoutX="13.0" layoutY="274.0" text="Change in dRadius">
                      <font>
                         <Font size="15.0" />
                      </font>

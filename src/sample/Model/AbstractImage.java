@@ -21,9 +21,6 @@ public abstract class AbstractImage {
 
     public abstract void initialise();
 
-    public abstract void addDefaultEllipse(int center_x, int center_y, int width, int height);
-    public abstract void addDefaultRectangle(int start_x, int start_y, int width, int height);
-
     public void refresh(){
         initialise();
     }

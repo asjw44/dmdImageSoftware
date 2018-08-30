@@ -5,6 +5,7 @@ import sample.Model.Canvas;
 import sample.Model.Shapes.AbstractShape;
 import sample.Model.Shapes.Doughnut;
 import sample.Model.Shapes.RGB;
+import sample.Model.Shapes.SpreadFill;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class Iterator {
     private int dWidth = 0;
     private int dHeight = 0;
     private int dRadius = 0;
+    private int dSpreadFill = 0;
     private int width;
     private int height;
 
@@ -87,6 +89,11 @@ public class Iterator {
         return this;
     }
 
+    public Iterator setdSpreadFill(int dSpreadFill){
+        this.dSpreadFill = dSpreadFill;
+        return this;
+    }
+
     public Iterator centerShape(boolean b){
         this.center = b;
         return this;
@@ -138,6 +145,14 @@ public class Iterator {
                         ((Doughnut) redShape).changeOffset(dRadius*(24*i+j));
                         ((Doughnut) greenShape).changeOffset(dRadius*(24*i+j+8));
                         ((Doughnut) blueShape).changeOffset(dRadius*(24*i+j+16));
+                    }
+                }
+
+                if(Math.abs(dSpreadFill)  > 0){
+                    if(baseShape instanceof SpreadFill){
+                        ((SpreadFill) redShape).rollFillFactor(dSpreadFill*(24*i+j));
+                        ((SpreadFill) greenShape).rollFillFactor(dSpreadFill*(24*i+j+8));
+                        ((SpreadFill) blueShape).rollFillFactor(dSpreadFill*(24*i+j+16));
                     }
                 }
 

@@ -8,7 +8,7 @@ import java.util.Map;
 
 public abstract class AbstractShape {
 
-    public static String[] shapes = {"Rectangle","Ellipse","Doughnut"};
+    public static String[] shapes = {"Rectangle","Ellipse","Doughnut","Spread Fill"};
 
     int startX;
     int startY;
@@ -112,7 +112,7 @@ public abstract class AbstractShape {
         }else if(this.getClass() == Doughnut.class){
             return new Doughnut(this, extraInfo);
         }else if(this.getClass() == SpreadFill.class){
-            return new SpreadFill(this,extraInfo);
+            return new SpreadFill(this, extraInfo);
         }else{
             return null;
         }

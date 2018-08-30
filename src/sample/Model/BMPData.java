@@ -45,16 +45,6 @@ public abstract class BMPData extends AbstractImage{
         this.b = b;
     }
 
-    @Override
-    public void addDefaultEllipse(int center_x, int center_y, int width, int height) {
-        setR(Geometry.addEllipseFill(r,center_x,center_y,width,height,255));
-    }
-
-    @Override
-    public void addDefaultRectangle(int start_x, int start_y, int width, int height) {
-        setR(Geometry.addRectangle(r,start_x,start_y,width,height,255));
-    }
-
     public ArrayList<int[][]> getAllColours(){
         ArrayList<int[][]> arrayList = new ArrayList<>();
         arrayList.add(r);

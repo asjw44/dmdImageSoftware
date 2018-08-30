@@ -38,16 +38,6 @@ public class Mask extends AbstractImage {
         mask = ArrayHelper.zeroes(width,height);
     }
 
-    @Override
-    public void addDefaultEllipse(int center_x, int center_y, int width, int height) {
-        setMask(Geometry.addEllipseFill(mask,center_x,center_y,width,height,1));
-    }
-
-    @Override
-    public void addDefaultRectangle(int start_x, int start_y, int width, int height) {
-        setMask(Geometry.addRectangle(mask, start_x,start_y,width,height,1));
-    }
-
     public int[][] getMask() {
         return mask;
     }
@@ -94,6 +84,19 @@ public class Mask extends AbstractImage {
             return reMask;
         }else{
             return new Mask(width,height);
+        }
+    }
+
+    public void printMask(Mask subMask, int x, int y){
+        //System.out.println(String.format("Print - x: %d\ty: %d",x,y));
+        for (int i = 0; i < subMask.getWidth(); i++) {
+            for(int j=0; j < subMask.getHeight(); j++){
+                try {
+                    mask[x+i][y+j] = subMask.getMask()[j][i];
+                } catch (IndexOutOfBoundsException e) {
+                    //Do Nothing (slightly cheating here)
+                }
+            }
         }
     }
 

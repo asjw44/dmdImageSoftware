@@ -87,6 +87,8 @@ public class Controller implements Initializable {
     @FXML private TextField dHeight;
     @FXML private TextField dRadius;
 
+    @FXML private Label dRadiusLabel;
+
     @FXML private CheckBox translateXCheckbox;
     @FXML private CheckBox translateYCheckbox;
     @FXML private CheckBox dWidthCheckbox;
@@ -156,9 +158,18 @@ public class Controller implements Initializable {
         selectShape.getItems().addAll(AbstractShape.shapes);
         selectShape.getSelectionModel().selectFirst();
         selectShape.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            boolean show = newValue.equals("Doughnut");
+            boolean show = newValue.equals("Doughnut") || newValue.equals("Spread Fill");
             doughnutOffset.setVisible(show);
             doughnutOffsetLabel.setVisible(show);
+            if(newValue.equals("Spread Fill")){
+                doughnutOffsetLabel.setText("Fill factor: ");
+                dRadiusLabel.setText("Change in fill factor");
+                doughnutOffset.setPromptText("Delta fill");
+            }else{
+                doughnutOffsetLabel.setText("dRadius");
+                dRadiusLabel.setText("Change in dRadius");
+                doughnutOffset.setPromptText("Delta radius");
+            }
         });
 
         rescaleTypePicker.getItems().addAll("Start", "End", "Average");
@@ -316,6 +327,8 @@ public class Controller implements Initializable {
                         dWidthCheckbox.isSelected() ? -1 * Integer.parseInt(dWidth.getText()) : Integer.parseInt(dWidth.getText())
                 ).setDRadiusChange(
                         dRadiusCheckbox.isSelected() ? -1 * Integer.parseInt(dRadius.getText()) : Integer.parseInt(dRadius.getText())
+                ).setdSpreadFill(
+                        dRadiusCheckbox.isSelected() ? -1 * Integer.parseInt(dRadius.getText()) : Integer.parseInt(dRadius.getText())
                 ).centerShape(centerShapes.isSelected())
                 .showShapeInfo()
                 .setRescaleType(rescaleType)
@@ -328,6 +341,10 @@ public class Controller implements Initializable {
                             return new Ellipse(colour, RGB.OverlapType.Add, startX, startY, Integer.parseInt(shapeSizeWidth.getText()), Integer.parseInt(shapeSizeHeight.getText()));
                         case "Doughnut":
                             return new Doughnut(colour, RGB.OverlapType.Add, startX, startY, Integer.parseInt(shapeSizeWidth.getText()), Integer.parseInt(shapeSizeHeight.getText()), Integer.parseInt(doughnutOffset.getText()));
+                        case "Spread Fill":
+                            //ToDo: make set size not hard coded
+                            SpreadFill fill = new SpreadFill(colour, RGB.OverlapType.Add, startX, startY, Integer.parseInt(shapeSizeWidth.getText()), Integer.parseInt(shapeSizeHeight.getText()), Integer.parseInt(doughnutOffset.getText()));
+                            fill.setSize(20);
                         default:
                             return null;
                     }
