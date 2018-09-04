@@ -47,6 +47,9 @@ public class Controller implements Initializable {
 
     private Path currentFilePath;
 
+    private static boolean cursorWindowOpen = false;
+    private static boolean staticShapesOpen = false;
+
     //MenuBar
 
     @FXML private MenuItem menuFileNew;
@@ -391,19 +394,23 @@ public class Controller implements Initializable {
     }
 
     private void displayAddWindows(){
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("addAShape.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Add a shape");
-            stage.setScene(new Scene(root, 600, 400));
-            stage.show();
-        } catch (IOException e) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            alert.setContentText("There was an error showing the window");
-            alert.showAndWait();
-            e.printStackTrace();
+        if(!staticShapesOpen){
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("addAShape.fxml"));
+                Stage stage = new Stage();
+                stage.setTitle("Add a shape");
+                stage.setScene(new Scene(root, 600, 400));
+                stage.setOnCloseRequest(event -> setStaticShapesOpen(false));
+                stage.show();
+                setStaticShapesOpen(true);
+            } catch (IOException e) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("There was an error showing the window");
+                alert.showAndWait();
+                e.printStackTrace();
+            }
         }
     }
 
@@ -667,14 +674,19 @@ public class Controller implements Initializable {
     //=============================View Menu===========================
 
     private void showCursorMenu(){
-        try{
-            Parent root = FXMLLoader.load(getClass().getResource("cursor.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("View Cursors");
-            stage.setScene(new Scene(root,300,300));
-            stage.show();
-        }catch (IOException e){
-            e.printStackTrace();
+        if(!cursorWindowOpen){
+            try{
+                Parent root = FXMLLoader.load(getClass().getResource("cursor.fxml"));
+                Stage stage = new Stage();
+                stage.setTitle("View Cursors");
+                stage.setScene(new Scene(root,300,300));
+                stage.setOnCloseRequest(event -> setCursorWindowOpen(false));
+                stage.setAlwaysOnTop(true);
+                stage.show();
+                setCursorWindowOpen(true);
+            }catch (IOException e){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -715,4 +727,11 @@ public class Controller implements Initializable {
         }
     }
 
+    static void setCursorWindowOpen(boolean cursorWindowOpen1){
+        cursorWindowOpen = cursorWindowOpen1;
+    }
+
+    static void setStaticShapesOpen(boolean staticShapesOpen) {
+        Controller.staticShapesOpen = staticShapesOpen;
+    }
 }

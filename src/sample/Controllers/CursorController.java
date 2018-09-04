@@ -39,7 +39,10 @@ public class CursorController implements Initializable {
         final KeyCombination f8 = new KeyCodeCombination(KeyCode.F8);
 
         Platform.runLater(() -> {
-            cursorPositions.getScene().getAccelerators().put(f5,() -> ((Stage) cursorPositions.getScene().getWindow()).close());
+            cursorPositions.getScene().getAccelerators().put(f5,() -> {
+                ((Stage) cursorPositions.getScene().getWindow()).close();
+                Controller.setCursorWindowOpen(false);
+            });
             cursorPositions.getScene().getAccelerators().put(f6,Controller::addMousePoint);
             cursorPositions.getScene().getAccelerators().put(f7,Controller::activateMousePoints);
             cursorPositions.getScene().getAccelerators().put(f8,Controller::removeMousePoints);

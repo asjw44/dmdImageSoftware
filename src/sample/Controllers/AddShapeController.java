@@ -298,6 +298,7 @@ public class AddShapeController implements Initializable {
             }
 
             Controller.staticShapes = shapes;
+            Controller.setStaticShapesOpen(false);
 
             Stage stage = (Stage) addAShapeButton.getScene().getWindow();
             stage.close();
