@@ -62,6 +62,8 @@ public class SpreadFill extends AbstractShape {
                 this.spreadType = SpreadType.Lines;
                 System.out.println("Error finding spread type. Setting to \"Lines\"");
         }
+
+        this.seed = map.get(RANDOM_SEED) == null ? 0 : map.get(RANDOM_SEED);
     }
 
     public void setFillFactor(int fillFactor) {
@@ -222,13 +224,20 @@ public class SpreadFill extends AbstractShape {
         blockMask.setMask(randomMask);
 
         double total = 0;
+        double total2 = 0;
         for (int[] aRandomMask : randomMask) {
             for (int j = 0; j < randomMask[0].length; j++) {
                 total+=aRandomMask[j];
+                if(j%2 == 0){
+                    total2 += aRandomMask[j];
+                }
             }
         }
         System.out.println("\nActual fill %: " + (100 * (total)/(size*size)));
-        System.out.println("Fill factor: " + Math.pow((total)/(size*size),-1) + "\n");
+        System.out.println("Fill factor: " + Math.pow((total)/(size*size),-1));
+        System.out.println("Fill converted: " + (100*(2*total2)/(size*size)));
+        System.out.println("Fill factor converted: " + Math.pow((2*total2)/(size*size),-1));
+
 
         for(int i = 0; i < arrWidth/size; i++){
             for(int j=0; j < arrHeight/size; j++){

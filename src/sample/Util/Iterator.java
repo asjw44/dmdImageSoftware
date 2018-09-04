@@ -106,6 +106,8 @@ public class Iterator {
 
     public Iterator.ExitCode write(){
 
+        baseShape.setRescaleType(rescaleType);
+
         if(center){ //We do not want the shapes to be moved if the shape is scaling from the center: we need to control this value!
             this.dx = 0;
             this.dy = 0;

@@ -1,6 +1,8 @@
 package sample.Model.Shapes;
 
 import sample.Model.Mask;
+import sample.Util.Iterator;
+import sample.Util.WriteBMP;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,6 +22,8 @@ public abstract class AbstractShape {
     private RGB colour;
 
     private RGB.OverlapType overlapType;
+
+    WriteBMP.RescaleType rescaleType;
 
     AbstractShape(RGB colour, RGB.OverlapType overlapType){
         this.colour = colour;
@@ -93,6 +97,10 @@ public abstract class AbstractShape {
     public void changeWidthHeight(int dW, int dH){
         width += dW;
         height += dH;
+    }
+
+    public void setRescaleType(WriteBMP.RescaleType rescaleType) {
+        this.rescaleType = rescaleType;
     }
 
     @Override
