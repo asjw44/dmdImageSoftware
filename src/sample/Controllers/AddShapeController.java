@@ -127,16 +127,21 @@ public class AddShapeController implements Initializable {
         shapeSelector.getItems().addAll(AbstractShape.shapes);
         shapeSelector.getSelectionModel().selectFirst();
         shapeSelector.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if(newValue.equals("Doughnut")){
+            if(newValue.equals("Doughnut") || newValue.equals("Spread Fill")){
+                if(shapeProperties.getChildren().size() == 3){
+                    shapeProperties.getChildren().remove(2);
+                }
                 HBox doughnutExtra = new HBox(5);
 
-                Label doughnutDExtra = new Label("dLabel");
+                Label doughnutDExtra = new Label(newValue.equals("Doughnut") ? "dRadius" : "Fill factor");
                 doughnutDExtra.setPrefWidth(labelWidth);
                 doughnutDExtra.setFont(new Font(15));
 
                 TextField doughnutOffset = new TextField();
-                doughnutOffset.setPromptText("Delta radius");
+                doughnutOffset.setPromptText(newValue.equals("Doughnut") ? "Delta radius" : "Fill factor");
                 doughnutOffset.setPrefWidth(textFieldWidth);
+
+                doughnutOffset.textProperty().addListener(((observable1, oldValue1, newValue1) -> checkNumber(doughnutOffset,newValue1)));
 
                 doughnutExtra.getChildren().add(doughnutDExtra);
                 doughnutExtra.getChildren().add(doughnutOffset);
@@ -179,6 +184,9 @@ public class AddShapeController implements Initializable {
             }
         });
 
+        shapeLocX.textProperty().addListener((observable, oldValue, newValue) -> checkNumber(shapeLocX,newValue));
+        shapeLocY.textProperty().addListener(((observable, oldValue, newValue) -> checkNumber(shapeLocY,newValue)));
+
         shapeLocFrame.getChildren().add(shapeLoc);
         shapeLocFrame.getChildren().add(shapeLocX);
         shapeLocFrame.getChildren().add(shapeLocY);
@@ -201,6 +209,9 @@ public class AddShapeController implements Initializable {
         shapeSizeY.setPromptText("Height");
         shapeSizeY.setPrefWidth(textFieldWidth);
         shapeSizeY.setPrefHeight(textFieldHeight);
+
+        shapeLocX.textProperty().addListener(((observable, oldValue, newValue) -> checkNumber(shapeLocX,newValue)));
+        shapeLocY.textProperty().addListener(((observable, oldValue, newValue) -> checkNumber(shapeLocY,newValue)));
 
         shapeSizeFrame.getChildren().add(shapeSize);
         shapeSizeFrame.getChildren().add(shapeSizeX);
@@ -327,6 +338,12 @@ public class AddShapeController implements Initializable {
             }
         }
 
+    }
+
+    private void checkNumber(TextField textField, String newValue){
+        if(!newValue.matches("\\d*")){
+            textField.setText(newValue.replaceAll("[^\\d]",""));
+        }
     }
 
 }

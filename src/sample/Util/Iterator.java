@@ -21,7 +21,7 @@ public class Iterator {
     private int dWidth = 0;
     private int dHeight = 0;
     private int dRadius = 0;
-    private int dSpreadFill = 0;
+    private double dSpreadFill = 0;
     private int width;
     private int height;
 
@@ -89,7 +89,7 @@ public class Iterator {
         return this;
     }
 
-    public Iterator setdSpreadFill(int dSpreadFill){
+    public Iterator setdSpreadFill(double dSpreadFill){
         this.dSpreadFill = dSpreadFill;
         return this;
     }

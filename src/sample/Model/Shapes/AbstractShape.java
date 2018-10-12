@@ -1,7 +1,6 @@
 package sample.Model.Shapes;
 
 import sample.Model.Mask;
-import sample.Util.Iterator;
 import sample.Util.WriteBMP;
 
 import java.util.ArrayList;
@@ -17,7 +16,7 @@ public abstract class AbstractShape {
     int width;
     int height;
 
-    private Map<String, Integer> extraInfo = new HashMap<>();
+    private Map<String, Number> extraInfo = new HashMap<>();
 
     private RGB colour;
 
@@ -34,11 +33,11 @@ public abstract class AbstractShape {
      * Extra info is for storing the properties of shapes that are not included here for them to be recreated from just this abstract class.
      * @return The extra info map for recreating properties.
      */
-    Map<String, Integer> getExtraInfo() {
+    Map<String, Number> getExtraInfo() {
         return extraInfo;
     }
 
-    void setExtraInfo(Map<String, Integer> extraInfo) {
+    void setExtraInfo(Map<String,Number> extraInfo) {
         this.extraInfo = extraInfo;
     }
 
@@ -120,7 +119,7 @@ public abstract class AbstractShape {
         }else if(this.getClass() == Doughnut.class){
             return new Doughnut(this, extraInfo);
         }else if(this.getClass() == SpreadFill.class){
-            return new SpreadFill(this, extraInfo);
+            return new SpreadFill(this, extraInfo, rescaleType);
         }else{
             return null;
         }

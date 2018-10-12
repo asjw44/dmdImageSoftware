@@ -17,14 +17,14 @@ public class Doughnut extends Ellipse {
         setOffset(offset);
     }
 
-    Doughnut(AbstractShape r, Map<String, Integer> map){
+    Doughnut(AbstractShape r, Map<String, Number> map){
         super(r.getColour(),r.getOverlapType(),r.getStartX(),r.getStartY(),r.getWidth(),r.getHeight());
         setExtraInfo(map);
-        this.offset = getExtraInfo().get(OFFSET);
+        this.offset = (int) getExtraInfo().get(OFFSET);
     }
 
     private void setOffset(int offset){
-        Map<String, Integer> map = getExtraInfo();
+        Map<String, Number> map = getExtraInfo();
         map.put(OFFSET,offset);
         setExtraInfo(map);
     }

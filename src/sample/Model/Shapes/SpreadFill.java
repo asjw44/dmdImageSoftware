@@ -1,6 +1,7 @@
 package sample.Model.Shapes;
 
 import sample.Model.Mask;
+import sample.Util.WriteBMP;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -17,13 +18,15 @@ public class SpreadFill extends AbstractShape {
     private static final String SPREAD_TYPE = "spreadType";
     private static final String RANDOM_SEED = "seed";
 
-    private int fillFactor;
+    private double fillFactor;
     private int size = 2;
     private int seed = 0;
 
+    private WriteBMP.RescaleType rescaleType;
+
     private SpreadType spreadType = SpreadType.Lines;
 
-    public SpreadFill(RGB colour, RGB.OverlapType type, int start_x, int start_y, int width, int height, int fillFactor) {
+    public SpreadFill(RGB colour, RGB.OverlapType type, int start_x, int start_y, int width, int height, double fillFactor) {
         super(colour, type);
 
         this.startX = start_x;
@@ -36,7 +39,7 @@ public class SpreadFill extends AbstractShape {
         setSquareSize(2);
     }
 
-    SpreadFill(AbstractShape r, Map<String,Integer> map){
+    SpreadFill(AbstractShape r, Map<String, Number> map, WriteBMP.RescaleType rescaleType){
         super(r.getColour(),r.getOverlapType());
 
         this.startX = r.getStartX();
@@ -45,10 +48,12 @@ public class SpreadFill extends AbstractShape {
         this.width = r.getWidth();
         this.height = r.getHeight();
 
+        this.rescaleType = rescaleType;
+
         setExtraInfo(map);
-        this.fillFactor = map.get(FILL_FACTOR);
-        this.size = map.get(SIZE);
-        switch (map.get(SPREAD_TYPE)){
+        this.fillFactor = (Double) map.get(FILL_FACTOR);
+        this.size = (Integer) map.get(SIZE);
+        switch ((Integer) map.get(SPREAD_TYPE)){
             case 1:
                 this.spreadType = SpreadType.Lines;
                 break;
@@ -63,25 +68,25 @@ public class SpreadFill extends AbstractShape {
                 System.out.println("Error finding spread type. Setting to \"Lines\"");
         }
 
-        this.seed = map.get(RANDOM_SEED) == null ? 0 : map.get(RANDOM_SEED);
+        this.seed = map.get(RANDOM_SEED) == null ? 0 : (Integer) map.get(RANDOM_SEED);
     }
 
-    public void setFillFactor(int fillFactor) {
-        Map<String,Integer> map = getExtraInfo();
+    public void setFillFactor(double fillFactor) {
+        Map<String,Number> map = getExtraInfo();
         map.put(FILL_FACTOR,fillFactor);
         setExtraInfo(map);
         this.fillFactor = fillFactor;
     }
 
     public void setSquareSize(int size){
-        Map<String, Integer> map = getExtraInfo();
+        Map<String, Number> map = getExtraInfo();
         map.put(SIZE,size);
         setExtraInfo(map);
         this.size = size;
     }
 
     public void setSpreadType(SpreadType spreadType) {
-        Map<String, Integer> map = getExtraInfo();
+        Map<String, Number> map = getExtraInfo();
         switch (spreadType){
             case Lines:
                 map.put(SPREAD_TYPE,1);
@@ -100,13 +105,13 @@ public class SpreadFill extends AbstractShape {
     }
 
     public void setSeed(int seed){
-        Map<String,Integer> map = getExtraInfo();
+        Map<String,Number> map = getExtraInfo();
         map.put(RANDOM_SEED,seed);
         setExtraInfo(map);
         this.seed = seed;
     }
 
-    public int getFillFactor(){
+    public double getFillFactor(){
         return fillFactor;
     }
 
@@ -186,7 +191,13 @@ public class SpreadFill extends AbstractShape {
 
     private Mask setRandomMask(Mask mask, int arrWidth, int arrHeight){
 
-        Mask blockMask = new Mask(size,size);
+        int maskWidth = size;
+
+        if(this.rescaleType != WriteBMP.RescaleType.NONE){
+            maskWidth = size/2;
+        }
+
+        Mask blockMask = new Mask(maskWidth,size);
         int[][] randomMask = blockMask.getMask();
 
         int seedInternal = seed;
@@ -197,13 +208,13 @@ public class SpreadFill extends AbstractShape {
 
         Random random = new Random(seedInternal);
 
-        int[] idx = new int[size*size/fillFactor];
+        int[] idx = new int[(int)( maskWidth*size/fillFactor)];
 
         for (int i = 0; i < idx.length; i++) {
             boolean contains = true;
             int rand;
             do{
-                rand = random.nextInt(size*size);
+                rand = random.nextInt(maskWidth*size);
                 boolean check = true;
                 for(int internal : idx){
                     if(rand == internal){
@@ -218,6 +229,7 @@ public class SpreadFill extends AbstractShape {
         }
 
         for(int i : idx){
+            //System.out.println(String.format("%d\t%d\t%d\t%d\t%d\t%d",idx.length,i,i/maskWidth,i%size,randomMask.length,randomMask[0].length));
             randomMask[(int)Math.floor(i/size)][i%size] = 1;
         }
 
@@ -238,10 +250,18 @@ public class SpreadFill extends AbstractShape {
         System.out.println("Fill converted: " + (100*(2*total2)/(size*size)));
         System.out.println("Fill factor converted: " + Math.pow((2*total2)/(size*size),-1));
 
+        Mask blockMask2 = new Mask(size, size);
+        int[][] arr = blockMask2.getMask();
+        for (int i = 0; i < size; i+=2) {
+            for(int j = 0; j < size; j++){
+                arr[i][j] = randomMask[i/2][j];
+                arr[i+1][j] = randomMask[i/2][j];
+            }
+        }blockMask2.setMask(arr);
 
         for(int i = 0; i < arrWidth/size; i++){
             for(int j=0; j < arrHeight/size; j++){
-                mask.printMask(blockMask, i*size, j*size);
+                mask.printMask(blockMask2, i*size, j*size);
             }
         }
 
@@ -253,13 +273,13 @@ public class SpreadFill extends AbstractShape {
         return new int[0][];
     }
 
-    public void rollFillFactor(int dFill){
+    public void rollFillFactor(double dFill){
         this.fillFactor += dFill;
     }
 
     @Override
     public String toString() {
-        return String.format("SpreadFill --> x: %d\ty: %d\twidth: %d\theight: %d\tsize: %d\tfill: %d  ",startX,startY,width,height,size,fillFactor);
+        return String.format("SpreadFill --> x: %d\ty: %d\twidth: %d\theight: %d\tsize: %d\tfill: %.1f  ",startX,startY,width,height,size,fillFactor);
     }
 
     @Override

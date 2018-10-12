@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="DMD Image Software:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/DMD_Image_Software_jar</output-path>
+    <output-path>$USER_HOME$/Desktop</output-path>
     <root id="archive" name="DMD Image Software.jar">
       <element id="module-output" name="DMD Image Software" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/xstream-distribution-1.4.10-bin/xstream-1.4.10/lib/xstream/xmlpull-1.1.3.1.jar" path-in-jar="/" />
