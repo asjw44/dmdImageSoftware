@@ -115,7 +115,12 @@ public class Ellipse extends AbstractShape {
                 arr[centerX-x][centerY-y] = 1;
 
                 y++;
-                endY = arr[centerX+x][centerY+y] == 1;
+                try {
+                    endY = arr[centerX + x][centerY + y] == 1;
+                }catch(ArrayIndexOutOfBoundsException e){
+                    System.out.println(String.format("Arr out of bounds (skipping): x: %d\ty: %d",centerX + x,centerY + y));
+                    endY = true;
+                }
             }
         }
         mask.setMask(arr);

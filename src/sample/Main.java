@@ -5,8 +5,10 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import sample.Model.Shapes.AbstractShape;
+import sample.Model.Shapes.Ellipse;
 import sample.Model.Shapes.RGB;
 import sample.Model.Shapes.SpreadFill;
 import sample.Util.Constants;
@@ -27,12 +29,16 @@ public class Main extends Application {
 
 
 
-        Iterator iteratorBlocks = new Iterator("doubles_20_block_2",Constants.DMD_WIDTH,Constants.DMD_HEIGHT,672,330);
+        Iterator iteratorBlocks = new Iterator("doubles_20_block_1_f",Constants.DMD_WIDTH,Constants.DMD_HEIGHT,672,330);
         iteratorBlocks.setShapeIterator((colour, startX, startY) -> {
             SpreadFill fill = new SpreadFill(colour, RGB.OverlapType.Add,startX,startY,480,480,1.1);
             fill.setSize(20);
             fill.setSpreadType(SpreadFill.SpreadType.Random);
-            fill.setSeed(1550);
+            int seed = (int) Math.sqrt((System.currentTimeMillis()))/2;
+            fill.setSeed(seed);
+            //1st test: 1550
+            //2nd test: 2000
+            System.out.println(seed);
             return fill;
         });
         iteratorBlocks.setdSpreadFill(0.1);
@@ -41,6 +47,17 @@ public class Main extends Application {
         iteratorBlocks.setRescaleType(WriteBMP.RescaleType.START);
         Iterator.ExitCode exitCode = iteratorBlocks.write();
         System.out.println(exitCode.toString());
+
+        /*Iterator iterator = new Iterator("mirrorFour",Constants.DMD_WIDTH,Constants.DMD_HEIGHT,500,150);
+        iterator.setShapeIterator((colour, startX, startY) -> new Ellipse(colour, RGB.OverlapType.Add,startX,startY,300,300));
+        iterator.setImages(3);
+        iterator.setWidthChange(-4);
+        iterator.setHeightChange(-4);
+        iterator.centerShape(true);
+        iterator.setMirrorFour(true);
+        iterator.setRescaleType(WriteBMP.RescaleType.NONE);
+        Iterator.ExitCode exitCode = iterator.write();
+        System.out.println(exitCode.toString());*/
 
 
         /*Iterator iterator = new Iterator("fill_size_12", Constants.DMD_WIDTH,Constants.DMD_HEIGHT,672,330);

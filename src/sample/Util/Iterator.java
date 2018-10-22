@@ -24,6 +24,7 @@ public class Iterator {
     private double dSpreadFill = 0;
     private int width;
     private int height;
+    private boolean mirrorFour = false;
 
     private WriteBMP.RescaleType rescaleType = WriteBMP.RescaleType.NONE;
 
@@ -104,6 +105,11 @@ public class Iterator {
         return this;
     }
 
+    public Iterator setMirrorFour(boolean b){
+        this.mirrorFour = b;
+        return this;
+    }
+
     public Iterator.ExitCode write(){
 
         baseShape.setRescaleType(rescaleType);
@@ -178,7 +184,9 @@ public class Iterator {
             }
             if(img.drawShapes()) {
                 try {
-                    WriteBMP.getInstance().printBMP(img, rescaleType);
+                    if(mirrorFour){
+                        img.mirrorQuarter();
+                    }WriteBMP.getInstance().printBMP(img, rescaleType);
                 } catch (IOException e) {
                     e.printStackTrace();
                     return ExitCode.PrintError;

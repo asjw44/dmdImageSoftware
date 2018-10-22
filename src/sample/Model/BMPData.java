@@ -45,7 +45,7 @@ public abstract class BMPData extends AbstractImage{
         this.b = b;
     }
 
-    public ArrayList<int[][]> getAllColours(){
+    ArrayList<int[][]> getAllColours(){
         ArrayList<int[][]> arrayList = new ArrayList<>();
         arrayList.add(r);
         arrayList.add(g);
@@ -53,7 +53,7 @@ public abstract class BMPData extends AbstractImage{
         return arrayList;
     }
 
-    public void setAllColours(ArrayList<int[][]> arrayList){
+    void setAllColours(ArrayList<int[][]> arrayList){
         if (arrayList.size() == 3) {
             setR(arrayList.get(0));
             setG(arrayList.get(1));
