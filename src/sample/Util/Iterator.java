@@ -14,6 +14,8 @@ public class Iterator {
 
     private String baseName;
 
+    private ArrayList<Canvas> canvases;
+
     private int startX;
     private int startY;
     private int dx = 0;
@@ -111,6 +113,30 @@ public class Iterator {
     }
 
     public Iterator.ExitCode write(){
+        writeCanvases();
+        for(Canvas c : canvases){
+            if(!c.getInsidePerimeter()){
+                System.out.println("A shape goes outside the perimeter");
+                return ExitCode.PerimeterError;
+            }else {
+                try {
+                    WriteBMP.getInstance().printBMP(c, rescaleType);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return ExitCode.PrintError;
+                }
+            }
+        }
+        return ExitCode.Successful;
+    }
+
+    public ArrayList<Canvas> getCanvases() {
+        return canvases;
+    }
+
+    public void writeCanvases(){
+
+        if(canvases == null){canvases = new ArrayList<>();}
 
         baseShape.setRescaleType(rescaleType);
 
@@ -120,47 +146,47 @@ public class Iterator {
         }
 
         for (int i = 0; i < images; i++) {
-            System.out.println("========================================== Image " + (i+1) + " ==========================================");
-            Canvas img = new Canvas(baseName + "_" + i,width,height);
-            for(int j = 0; j < Constants.BIT_DEPTH.length; j++){
+            System.out.println("========================================== Image " + (i + 1) + " ==========================================");
+            Canvas img = new Canvas(baseName + "_" + i, width, height);
+            for (int j = 0; j < Constants.BIT_DEPTH.length; j++) {
 
                 AbstractShape redShape = baseShape.copy();
                 AbstractShape greenShape = baseShape.copy();
                 AbstractShape blueShape = baseShape.copy();
 
-                redShape.setColour(new RGB(BMPData.Colour.Red,Constants.BIT_DEPTH[j]));
-                greenShape.setColour(new RGB(BMPData.Colour.Green,Constants.BIT_DEPTH[j]));
-                blueShape.setColour(new RGB(BMPData.Colour.Blue,Constants.BIT_DEPTH[j]));
+                redShape.setColour(new RGB(BMPData.Colour.Red, Constants.BIT_DEPTH[j]));
+                greenShape.setColour(new RGB(BMPData.Colour.Green, Constants.BIT_DEPTH[j]));
+                blueShape.setColour(new RGB(BMPData.Colour.Blue, Constants.BIT_DEPTH[j]));
 
-                if (Math.abs(dx+dy)>0) {
-                    redShape.translate(dx*(24*i+j),dy*(24*i+j));
-                    greenShape.translate(dx*(24*i+j+8),dy*(24*i+j+8));
-                    blueShape.translate(dx*(24*i+j+16),dy*(24*i+j+16));
-                }else if (center){
-                    redShape.translate(-(dWidth/2)*(24*i+j),-(dHeight/2)*(24*i+j));
-                    greenShape.translate(-(dWidth/2)*(24*i+j+8),-(dHeight/2)*(24*i+j+8));
-                    blueShape.translate(-(dWidth/2)*(24*i+j+16),-(dHeight/2)*(24*i+j+16));
+                if (Math.abs(dx + dy) > 0) {
+                    redShape.translate(dx * (24 * i + j), dy * (24 * i + j));
+                    greenShape.translate(dx * (24 * i + j + 8), dy * (24 * i + j + 8));
+                    blueShape.translate(dx * (24 * i + j + 16), dy * (24 * i + j + 16));
+                } else if (center) {
+                    redShape.translate(-(dWidth / 2) * (24 * i + j), -(dHeight / 2) * (24 * i + j));
+                    greenShape.translate(-(dWidth / 2) * (24 * i + j + 8), -(dHeight / 2) * (24 * i + j + 8));
+                    blueShape.translate(-(dWidth / 2) * (24 * i + j + 16), -(dHeight / 2) * (24 * i + j + 16));
                 }
 
-                if (Math.abs(dWidth+dHeight)>0) {
-                    redShape.changeWidthHeight(dWidth*(24*i+j),dHeight*(24*i+j));
-                    greenShape.changeWidthHeight(dWidth*(24*i+j+8),dHeight*(24*i+j+8));
-                    blueShape.changeWidthHeight(dWidth*(24*i+j+16),dHeight*(24*i+j+16));
+                if (Math.abs(dWidth + dHeight) > 0) {
+                    redShape.changeWidthHeight(dWidth * (24 * i + j), dHeight * (24 * i + j));
+                    greenShape.changeWidthHeight(dWidth * (24 * i + j + 8), dHeight * (24 * i + j + 8));
+                    blueShape.changeWidthHeight(dWidth * (24 * i + j + 16), dHeight * (24 * i + j + 16));
                 }
 
-                if(Math.abs(dRadius) > 0){
-                    if(baseShape instanceof Doughnut){
-                        ((Doughnut) redShape).changeOffset(dRadius*(24*i+j));
-                        ((Doughnut) greenShape).changeOffset(dRadius*(24*i+j+8));
-                        ((Doughnut) blueShape).changeOffset(dRadius*(24*i+j+16));
+                if (Math.abs(dRadius) > 0) {
+                    if (baseShape instanceof Doughnut) {
+                        ((Doughnut) redShape).changeOffset(dRadius * (24 * i + j));
+                        ((Doughnut) greenShape).changeOffset(dRadius * (24 * i + j + 8));
+                        ((Doughnut) blueShape).changeOffset(dRadius * (24 * i + j + 16));
                     }
                 }
 
-                if(Math.abs(dSpreadFill)  > 0){
-                    if(baseShape instanceof SpreadFill){
-                        ((SpreadFill) redShape).rollFillFactor(dSpreadFill*(24*i+j));
-                        ((SpreadFill) greenShape).rollFillFactor(dSpreadFill*(24*i+j+8));
-                        ((SpreadFill) blueShape).rollFillFactor(dSpreadFill*(24*i+j+16));
+                if (Math.abs(dSpreadFill) > 0) {
+                    if (baseShape instanceof SpreadFill) {
+                        ((SpreadFill) redShape).rollFillFactor(dSpreadFill * (24 * i + j));
+                        ((SpreadFill) greenShape).rollFillFactor(dSpreadFill * (24 * i + j + 8));
+                        ((SpreadFill) blueShape).rollFillFactor(dSpreadFill * (24 * i + j + 16));
                     }
                 }
 
@@ -169,8 +195,8 @@ public class Iterator {
                 img.addShape(blueShape);
             }
 
-            if(staticShapes.size() > 0){
-                for(AbstractShape shape : staticShapes){
+            if (staticShapes.size() > 0) {
+                for (AbstractShape shape : staticShapes) {
                     AbstractShape staticShape = shape.copy();
                     staticShape.setColour(new RGB(255));
                     img.addShape(staticShape);
@@ -178,26 +204,17 @@ public class Iterator {
             }
 
             if (showShapeInfo) {
-                for(AbstractShape shape: img.getShapes()){
-                    System.out.println(String.format("%s\t Colour: %s",shape.toString(),shape.getColour().toString()));
+                for (AbstractShape shape : img.getShapes()) {
+                    System.out.println(String.format("%s\t Colour: %s", shape.toString(), shape.getColour().toString()));
                 }
             }
-            if(img.drawShapes()) {
-                try {
-                    if(mirrorFour){
-                        img.mirrorQuarter();
-                    }WriteBMP.getInstance().printBMP(img, rescaleType);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return ExitCode.PrintError;
-                }
-            }else{
-                System.out.println("A shape goes outside the perimeter");
-                return ExitCode.PerimeterError;
+
+            if (img.drawShapes()) {
+                if (mirrorFour) {
+                    img.mirrorQuarter();
+                }canvases.add(img);
             }
         }
-
-        return ExitCode.Successful;
     }
 
     public enum ExitCode{

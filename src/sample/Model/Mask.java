@@ -92,7 +92,7 @@ public class Mask extends AbstractImage {
         for (int i = 0; i < subMask.getWidth(); i++) {
             for(int j=0; j < subMask.getHeight(); j++){
                 try {
-                    mask[x+i][y+j] = subMask.getMask()[j][i];
+                    mask[x+i][y+j] = subMask.getMask()[i][j];
                 } catch (IndexOutOfBoundsException e) {
                     //Do Nothing (slightly cheating here)
                 }

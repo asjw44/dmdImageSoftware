@@ -5,13 +5,12 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import sample.Model.Shapes.AbstractShape;
 import sample.Model.Shapes.Ellipse;
 import sample.Model.Shapes.RGB;
-import sample.Model.Shapes.SpreadFill;
+import sample.Model.Shapes.Rectangle;
 import sample.Util.Constants;
+import sample.Util.FourCoreGenerator;
 import sample.Util.Iterator;
 import sample.Util.WriteBMP;
 
@@ -27,9 +26,23 @@ public class Main extends Application {
         primaryStage.setOnCloseRequest(event -> Platform.exit());
         primaryStage.show();
 
+        int width = Constants.DMD_WIDTH;
+        int height = Constants.DMD_HEIGHT;
+        final int constant = 148;
 
+        Iterator it = new Iterator("core_small_b", width,height,width/2-constant,height/2-constant);
+        it.setShapeIterator(((colour, startX, startY) -> new Ellipse(colour, RGB.OverlapType.Add, startX, startY, constant,constant)));
+        it.centerShape(true);
+        it.setWidthChange(-2);
+        it.setHeightChange(-2);
+        it.setImages(3);
+        it.writeCanvases();
 
-        Iterator iteratorBlocks = new Iterator("doubles_20_block_1_f",Constants.DMD_WIDTH,Constants.DMD_HEIGHT,672,330);
+        FourCoreGenerator fcg = new FourCoreGenerator(it.getCanvases());
+        fcg.drawSimultaneously(WriteBMP.RescaleType.START);
+        fcg.drawIndividually(WriteBMP.RescaleType.START);
+
+        /*Iterator iteratorBlocks = new Iterator("doubles_20_block_1_f",Constants.DMD_WIDTH,Constants.DMD_HEIGHT,672,330);
         iteratorBlocks.setShapeIterator((colour, startX, startY) -> {
             SpreadFill fill = new SpreadFill(colour, RGB.OverlapType.Add,startX,startY,480,480,1.1);
             fill.setSize(20);
@@ -46,7 +59,7 @@ public class Main extends Application {
         iteratorBlocks.showShapeInfo();
         iteratorBlocks.setRescaleType(WriteBMP.RescaleType.START);
         Iterator.ExitCode exitCode = iteratorBlocks.write();
-        System.out.println(exitCode.toString());
+        System.out.println(exitCode.toString());*/
 
         /*Iterator iterator = new Iterator("mirrorFour",Constants.DMD_WIDTH,Constants.DMD_HEIGHT,500,150);
         iterator.setShapeIterator((colour, startX, startY) -> new Ellipse(colour, RGB.OverlapType.Add,startX,startY,300,300));
@@ -96,6 +109,8 @@ public class Main extends Application {
         canvas.addShape(spreadFill);
         canvas.drawShapes();
         WriteBMP.getInstance().printBMP(canvas, WriteBMP.RescaleType.NONE);*/
+
+        System.out.println("\nMain class code complete.");
 
     }
 
