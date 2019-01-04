@@ -49,7 +49,6 @@ public class RGB {
         return a > 255 ? 255 : a < 0 ? 0 : a;
     }
 
-
     public enum OverlapType{
         Overlap,Add,Subtract,Average,Ignore
     }
@@ -73,6 +72,14 @@ public class RGB {
                 return getColourArray();
         }
 
+    }
+
+    public static RGB white(){
+        return new RGB(255);
+    }
+
+    public static RGB black(){
+        return new RGB(0);
     }
 
     @Override

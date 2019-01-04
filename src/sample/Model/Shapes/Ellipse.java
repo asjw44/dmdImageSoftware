@@ -1,6 +1,7 @@
 package sample.Model.Shapes;
 
 import sample.Model.Mask;
+import sample.Util.Vector2;
 
 import java.util.ArrayList;
 
@@ -21,6 +22,26 @@ public class Ellipse extends AbstractShape {
         this.centerX = startX + (int)Math.floor(width/2);
         this.centerY = startY + (int)Math.floor(height/2);
 
+    }
+
+    /**
+     * Circle constructor. Used when have coordinates for MCFs
+     * @param colour Colour {@code RGB} of the circle.
+     * @param type Overlap type (See <code>RGB.OverlapType</code>).
+     * @param center Center x y coordinate as a vector2.
+     * @param radius Radius of the circle.
+     */
+    public Ellipse(RGB colour, RGB.OverlapType type, Vector2 center, int radius){
+        super(colour,type);
+
+        this.centerX = (int)center.x;
+        this.centerY = (int)center.y;
+
+        this.width = radius * 2;
+        this.height = radius * 2;
+
+        this.startX = centerX - radius;
+        this.startY = centerY - radius;
     }
 
     Ellipse(AbstractShape r){

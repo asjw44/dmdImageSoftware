@@ -208,7 +208,7 @@ public class SpreadFill extends AbstractShape {
 
         Random random = new Random(seedInternal);
 
-        int[] idx = new int[(int)( maskWidth*size/fillFactor)];
+        int[] idx = new int[(int)(maskWidth*size/fillFactor)];
 
         for (int i = 0; i < idx.length; i++) {
             boolean contains = true;

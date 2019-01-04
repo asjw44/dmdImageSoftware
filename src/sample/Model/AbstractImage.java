@@ -25,11 +25,11 @@ public abstract class AbstractImage {
         initialise();
     }
 
-    public boolean isBaseSizeEqual(AbstractImage abstractImage){
+    boolean isBaseSizeEqual(AbstractImage abstractImage){
         return this.width == abstractImage.getWidth() && this.height == abstractImage.getHeight();
     }
 
-    public boolean isArraySizeEqual(int[][] arr){
+    boolean isArraySizeEqual(int[][] arr){
         return this.width == arr.length && this.height == arr[0].length;
     }
 }

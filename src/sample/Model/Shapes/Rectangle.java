@@ -1,6 +1,7 @@
 package sample.Model.Shapes;
 
 import sample.Model.Mask;
+import sample.Util.Vector2;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,16 @@ public class Rectangle extends AbstractShape{
 
         this.width = r.getWidth();
         this.height = r.getHeight();
+    }
+
+    public Rectangle(RGB colour, RGB.OverlapType type, Vector2 center, int radius){
+        super(colour,type);
+
+        this.startX = (int)center.x - radius;
+        this.startY = (int)center.y - radius;
+
+        this.width = radius * 2;
+        this.height = radius * 2;
     }
 
     @Override

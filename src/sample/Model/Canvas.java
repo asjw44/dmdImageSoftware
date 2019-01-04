@@ -58,7 +58,7 @@ public class Canvas extends BMPData{
         return true;
     }
 
-    public void flipSelectionHorizontally(int start_x, int start_y, int width2, int height2){
+    private void flipSelectionHorizontally(int start_x, int start_y, int width2, int height2){
         ArrayList<int[][]> data = new ArrayList<>();
         data.addAll(getAllColours());
 
@@ -71,7 +71,7 @@ public class Canvas extends BMPData{
         }super.setAllColours(data);
     }
 
-    public void flipSelectionVertically(int start_x, int start_y, int width2, int height2){
+    private void flipSelectionVertically(int start_x, int start_y, int width2, int height2){
         ArrayList<int[][]> data = new ArrayList<>();
         data.addAll(getAllColours());
 
