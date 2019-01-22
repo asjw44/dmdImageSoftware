@@ -6,13 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import sample.Model.Canvas;
-import sample.Model.Shapes.Ellipse;
-import sample.Model.Shapes.RGB;
-import sample.Model.Shapes.Rectangle;
+import sample.Util.Vector2;
 import sample.Util.*;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -46,10 +42,10 @@ public class Main extends Application {
         fcg.drawSimultaneously(WriteBMP.RescaleType.START);
         fcg.drawIndividually(WriteBMP.RescaleType.START);*/
 
-        Vector2 x = new Vector2(822,508);
-        Vector2 y = new Vector2(1018,532);
-        Vector2 z = new Vector2(850,390);
-        Vector2 a = new Vector2(1034,402);
+        Vector2 x = new Vector2(802,508);
+        Vector2 y = new Vector2(996,530);
+        Vector2 z = new Vector2(828,382);
+        Vector2 a = new Vector2(1014,402);
 
         ArrayList<Vector2> vs = new ArrayList<>();
         vs.add(x);
@@ -57,13 +53,33 @@ public class Main extends Application {
         vs.add(z);
         vs.add(a);
 
-        VectorIterator v = new VectorIterator("4c_ attenuator_2",Constants.DMD_WIDTH,Constants.DMD_HEIGHT,vs);
+        VectorIterator v = new VectorIterator("4c_ attenuator_5r",Constants.DMD_WIDTH,Constants.DMD_HEIGHT,vs);
         v.setImages(3)
                 .setdRadius(-2)
-                .setCircleRadii(74)
+                .setCircleRadii(72) //74 - circle, 72 - rectangle
                 .setRescaleType(WriteBMP.RescaleType.START)
+                .makeRectangle()
                 .write();
         v.writeIndividual();
+
+
+        ArrayList<String[]> data = ReadFile.getInstance().getData();
+        for(String[] s : data){
+            StringBuilder sIn = new StringBuilder();
+            for(String s1 : s){
+                sIn.append(s1).append("\t");
+            }System.out.println(sIn);
+        }
+
+
+        /*Rectangle r = new Rectangle(RGB.white(), RGB.OverlapType.Add,y,3);
+        Canvas c = new Canvas("rectangle_x",Constants.DMD_WIDTH,Constants.DMD_HEIGHT);
+        c.addShape(r);
+        c.drawShapes();
+        WriteBMP.getInstance().printBMP(c, WriteBMP.RescaleType.START);
+
+
+        //=================================================================
 
         Ellipse ex = new Ellipse(RGB.white(),RGB.OverlapType.Add,x,60);
         Ellipse ey = new Ellipse(RGB.white(),RGB.OverlapType.Add,y,60);
@@ -158,6 +174,8 @@ public class Main extends Application {
                 .setShapeIterator((colour, startX, startY) -> new Rectangle(colour, RGB.OverlapType.Add,startX,startY,96,2))
                 .setRescaleType(WriteBMP.RescaleType.START)
                 .write();
+
+        */
 
 
         /*Iterator scan = new Iterator("core_small_scan_rows_2",width,height, width/2-constant,height/2-constant);

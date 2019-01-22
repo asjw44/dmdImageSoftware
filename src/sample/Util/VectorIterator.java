@@ -5,6 +5,7 @@ import sample.Model.Canvas;
 import sample.Model.Shapes.AbstractShape;
 import sample.Model.Shapes.Ellipse;
 import sample.Model.Shapes.RGB;
+import sample.Model.Shapes.Rectangle;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,6 +18,8 @@ public class VectorIterator {
     private int height = 0;
     private int dRadius = 0;
     private int images = 1;
+
+    private boolean rectangle;
 
     private WriteBMP.RescaleType rescaleType;
 
@@ -35,6 +38,11 @@ public class VectorIterator {
         }else{
             this.vectors = new ArrayList<>();
         }
+    }
+
+    public VectorIterator makeRectangle(){
+        this.rectangle = true;
+        return this;
     }
 
     public VectorIterator setCircleRadii(int radius){
@@ -64,7 +72,11 @@ public class VectorIterator {
         if(radius != null && radius.length >0 && radius.length == vectors.size()){
             for (int i = 0; i < radius.length; i++) {
                 baseShapes = new ArrayList<>();
-                baseShapes.add(new Ellipse(RGB.black(), RGB.OverlapType.Add,vectors.get(i),radius[i]));
+                if (!rectangle) {
+                    baseShapes.add(new Ellipse(RGB.black(), RGB.OverlapType.Add,vectors.get(i),radius[i]));
+                }else{
+                    baseShapes.add(new Rectangle(RGB.black(), RGB.OverlapType.Add,vectors.get(i),radius[i]));
+                }
                 for(int j = 0 ; j < images; j++){
                     Canvas img = writeShapes(new Canvas(baseName + "_(core " + (i + 1) + ")_" + j,width,height),j);
                     if(img.drawShapes()){
@@ -87,7 +99,12 @@ public class VectorIterator {
         baseShapes = new ArrayList<>();
         if(radius != null){
             for(int i = 0 ; i < radius.length; i++){
-                baseShapes.add(new Ellipse(RGB.black(),RGB.OverlapType.Add,vectors.get(i),radius[i]));
+                if(!rectangle){
+                    baseShapes.add(new Ellipse(RGB.black(),RGB.OverlapType.Add,vectors.get(i),radius[i]));
+                }else{
+                    baseShapes.add(new Rectangle(RGB.black(),RGB.OverlapType.Add,vectors.get(i),radius[i]));
+                }
+
             }
         }
 

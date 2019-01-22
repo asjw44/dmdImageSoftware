@@ -40,11 +40,13 @@
             <Menu mnemonicParsing="false" text="View">
               <items>
                 <MenuItem fx:id="menuViewCursor" mnemonicParsing="false" text="Cursor" />
+                <MenuItem fx:id="menuViewGraph" mnemonicParsing="false" text="Graph"/>
               </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem fx:id="menuHelpAbout" mnemonicParsing="false" text="About" />
+                <MenuItem fx:id="menuHelpLocation" mnemonicParsing="false" text="Blank" />
             </items>
           </Menu>
         </menus>
