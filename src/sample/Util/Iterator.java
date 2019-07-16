@@ -184,9 +184,11 @@ public class Iterator {
 
                 if (Math.abs(dSpreadFill) > 0) {
                     if (baseShape instanceof SpreadFill) {
-                        ((SpreadFill) redShape).rollFillFactor(dSpreadFill * (24 * i + j));
-                        ((SpreadFill) greenShape).rollFillFactor(dSpreadFill * (24 * i + j + 8));
-                        ((SpreadFill) blueShape).rollFillFactor(dSpreadFill * (24 * i + j + 16));
+                        if(redShape instanceof SpreadFill && greenShape instanceof SpreadFill && blueShape instanceof SpreadFill) {
+                            ((SpreadFill) redShape).rollFillFactor(dSpreadFill * (24 * i + j));
+                            ((SpreadFill) greenShape).rollFillFactor(dSpreadFill * (24 * i + j + 8));
+                            ((SpreadFill) blueShape).rollFillFactor(dSpreadFill * (24 * i + j + 16));
+                        }
                     }
                 }
 
@@ -213,6 +215,8 @@ public class Iterator {
                 if (mirrorFour) {
                     img.mirrorQuarter();
                 }canvases.add(img);
+            }else{
+                System.out.println("Error");
             }
         }
     }

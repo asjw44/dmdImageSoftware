@@ -6,13 +6,23 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sample.Model.Canvas;
+import sample.Model.Shapes.AbstractShape;
+import sample.Model.Shapes.RGB;
+import sample.Model.Shapes.Rectangle;
+import sample.Model.Shapes.SpreadFill;
 import sample.Util.Vector2;
 import sample.Util.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Locale;
 
 
 public class Main extends Application {
+
+    public static int width = Constants.DMD_WIDTH;
+    public static int height = Constants.DMD_HEIGHT;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -26,6 +36,49 @@ public class Main extends Application {
         int width = Constants.DMD_WIDTH;
         int height = Constants.DMD_HEIGHT;
         final int constant = 220;
+
+        WriteBMP.RescaleType rescaleType = WriteBMP.RescaleType.START;
+        //double fillFactor = 2;
+        //int seed = 100;
+        int square_size = 500;
+
+        //generate(fillFactor,1000,1,rescaleType);
+
+        /*for(double fillFactor = 6; fillFactor <= 10; fillFactor+=0.5){
+            System.out.println("\n" + fillFactor + "\n");
+            generate(fillFactor,1000,2,rescaleType);
+        }*/
+
+        /*Rectangle rectangle = new Rectangle(RGB.white(), RGB.OverlapType.Add, 0,0,width/2,height);
+        Canvas half = new Canvas("half",width,height);
+        half.addShape(rectangle);
+        printCanvas(half, WriteBMP.RescaleType.START);*/
+
+
+        /*SpreadFill spreadFill1 = new SpreadFill(RGB.white(), RGB.OverlapType.Add, 300,200,1350,850,2);
+        spreadFill1.setSeed(1000);
+        spreadFill1.setSpreadType(SpreadFill.SpreadType.RandomBlock);
+        spreadFill1.setSquareSize(40);
+        spreadFill1.setRescaleType(WriteBMP.RescaleType.NONE);
+
+        Canvas canvas = new Canvas("Spread trial",width,height);
+        canvas.addShape(spreadFill1);
+        printCanvas(canvas,WriteBMP.RescaleType.NONE);
+
+        /*Iterator iterator = new Iterator("spread_fill_try",20,20,0,0);
+        iterator.setShapeIterator((colour, startX, startY) -> new SpreadFill(colour, RGB.OverlapType.Add,0,0,20,20,0.5))
+                .setImages(1).setRescaleType(WriteBMP.RescaleType.NONE).showShapeInfo();
+        iterator.writeCanvases();
+        System.out.println(iterator.getCanvases().get(0).getImageName());
+        try {
+            System.out.println("HERE");
+            WriteBMP.getInstance().printBMP(iterator.getCanvases().get(0), WriteBMP.RescaleType.NONE);
+        }catch (IOException e){
+            e.printStackTrace();
+        }*/
+        //WriteBMP.getInstance().printBMP();
+
+        /*
 
         System.out.println(width/2-constant);
         System.out.println(height/2-constant);
@@ -42,10 +95,10 @@ public class Main extends Application {
         fcg.drawSimultaneously(WriteBMP.RescaleType.START);
         fcg.drawIndividually(WriteBMP.RescaleType.START);*/
 
-        Vector2 x = new Vector2(802,508);
-        Vector2 y = new Vector2(996,530);
-        Vector2 z = new Vector2(828,382);
-        Vector2 a = new Vector2(1014,402);
+        /*Vector2 x = new Vector2(860,666);
+        Vector2 y = new Vector2(724,560);
+        Vector2 z = new Vector2(994,562);
+        Vector2 a = new Vector2(842,452);
 
         ArrayList<Vector2> vs = new ArrayList<>();
         vs.add(x);
@@ -53,23 +106,14 @@ public class Main extends Application {
         vs.add(z);
         vs.add(a);
 
-        VectorIterator v = new VectorIterator("4c_ attenuator_5r",Constants.DMD_WIDTH,Constants.DMD_HEIGHT,vs);
+        VectorIterator v = new VectorIterator("4c_ attenuator_f2f_2r",Constants.DMD_WIDTH,Constants.DMD_HEIGHT,vs);
         v.setImages(3)
                 .setdRadius(-2)
-                .setCircleRadii(72) //74 - circle, 72 - rectangle
+                .setCircleRadii(74) //74 - circle, 72 - rectangle
                 .setRescaleType(WriteBMP.RescaleType.START)
                 .makeRectangle()
                 .write();
         v.writeIndividual();
-
-
-        ArrayList<String[]> data = ReadFile.getInstance().getData();
-        for(String[] s : data){
-            StringBuilder sIn = new StringBuilder();
-            for(String s1 : s){
-                sIn.append(s1).append("\t");
-            }System.out.println(sIn);
-        }
 
 
         /*Rectangle r = new Rectangle(RGB.white(), RGB.OverlapType.Add,y,3);
@@ -108,74 +152,10 @@ public class Main extends Application {
 
         }catch (IOException e){
             e.printStackTrace();
-        }
-
-        int x_start = 672;
-        int y_start = 330;
-
-        int x1_u = 108;
-
-        int x2_u = 282;
-
-        int y1_u = 20;
-
-        int y2_u = 140;
+        }*/
 
 
-        Iterator scan1 = new Iterator("small_scan_tl_x",width,height,x_start + x1_u,y_start + y1_u);
-        scan1.setImages(2)
-                .setTranslation(2,0)
-                .setShapeIterator((colour, startX, startY) -> new Rectangle(colour, RGB.OverlapType.Add,startX,startY,2,96))
-                .setRescaleType(WriteBMP.RescaleType.START)
-                .write();
-        Iterator scan1a = new Iterator("small_scan_tl_y",width,height,x_start + x1_u,y_start + y1_u);
-        scan1a.setImages(2)
-                .setTranslation(0,2)
-                .setShapeIterator((colour, startX, startY) -> new Rectangle(colour, RGB.OverlapType.Add,startX,startY,96,2))
-                .setRescaleType(WriteBMP.RescaleType.START)
-                .write();
 
-
-        Iterator scan2 = new Iterator("small_scan_tr_x",width,height,x_start + x2_u,y_start + y1_u);
-        scan2.setImages(2)
-                .setTranslation(2,0)
-                .setShapeIterator((colour, startX, startY) -> new Rectangle(colour, RGB.OverlapType.Add,startX,startY,2,96))
-                .setRescaleType(WriteBMP.RescaleType.START)
-                .write();
-        Iterator scan2a = new Iterator("small_scan_tr_y",width,height,x_start + x2_u,y_start + y1_u);
-        scan2a.setImages(2)
-                .setTranslation(0,2)
-                .setShapeIterator((colour, startX, startY) -> new Rectangle(colour, RGB.OverlapType.Add,startX,startY,96,2))
-                .setRescaleType(WriteBMP.RescaleType.START)
-                .write();
-
-        Iterator scan3 = new Iterator("small_scan_bl_x",width,height,x_start + x1_u,y_start + y2_u);
-        scan3.setImages(2)
-                .setTranslation(2,0)
-                .setShapeIterator((colour, startX, startY) -> new Rectangle(colour, RGB.OverlapType.Add,startX,startY,2,96))
-                .setRescaleType(WriteBMP.RescaleType.START)
-                .write();
-        Iterator scan3a = new Iterator("small_scan_bl_y",width,height,x_start + x1_u,y_start + y2_u);
-        scan3a.setImages(2)
-                .setTranslation(0,2)
-                .setShapeIterator((colour, startX, startY) -> new Rectangle(colour, RGB.OverlapType.Add,startX,startY,96,2))
-                .setRescaleType(WriteBMP.RescaleType.START)
-                .write();
-
-        Iterator scan4 = new Iterator("small_scan_br_x",width,height,x_start + x2_u,y_start + y2_u);
-        scan4.setImages(2)
-                .setTranslation(2,0)
-                .setShapeIterator((colour, startX, startY) -> new Rectangle(colour, RGB.OverlapType.Add,startX,startY,2,96))
-                .setRescaleType(WriteBMP.RescaleType.START)
-                .write();
-        Iterator scan4a = new Iterator("small_scan_br_y",width,height,x_start + x2_u,y_start + y2_u);
-        scan4a.setImages(2)
-                .setTranslation(0,2)
-                .setShapeIterator((colour, startX, startY) -> new Rectangle(colour, RGB.OverlapType.Add,startX,startY,96,2))
-                .setRescaleType(WriteBMP.RescaleType.START)
-                .write();
-
-        */
 
 
         /*Iterator scan = new Iterator("core_small_scan_rows_2",width,height, width/2-constant,height/2-constant);
@@ -198,6 +178,30 @@ public class Main extends Application {
 
         System.out.println("\nMain class code complete.");
 
+    }
+
+    private static void generate(double fillFactor, int seed, int square_size, WriteBMP.RescaleType rescaleType){
+        SpreadFill spreadFill = new SpreadFill(RGB.white(), RGB.OverlapType.Add, 300,200,1350,850,fillFactor);
+        spreadFill.setSeed(seed);
+        spreadFill.setSpreadType(SpreadFill.SpreadType.RandomBlock);
+        spreadFill.setSquareSize(square_size);
+        spreadFill.setRescaleType(rescaleType);
+
+        Canvas spreadCanvas = new Canvas(String.format(Locale.UK,"spreadBlock_%.1f_seed_%d_square_%s",fillFactor,seed,square_size),width,height);
+        spreadCanvas.addShape(spreadFill);
+        printCanvas(spreadCanvas,rescaleType);
+    }
+
+    private static void printCanvas(Canvas c, WriteBMP.RescaleType rescaleType){
+        if(c.drawShapes()){
+            try{
+                WriteBMP.getInstance().printBMP(c,rescaleType);
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }else{
+            System.out.println("Drawing image error");
+        }
     }
 
 

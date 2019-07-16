@@ -1,0 +1,48 @@
+.root {
+    -chart-background: #666;
+    -chart-grid-colour: #FFF;
+    -background-colour: #FFF;
+    -title-colour: #000;
+
+    -fx-font-size: 12px;
+    -fx-font-family: sans-serif;
+    -fx-background: -background-colour;
+    -fx-text-fill: #000;
+}
+
+.chart {
+    -fx-background: -chart-background;
+}
+
+.chart-title{
+    -fx-text-fill: -title-colour;
+}
+
+
+.axis {
+    -fx-font-size: 1.4em;
+    -fx-tick-label-fill: #000;
+    -fx-font-family: Tahoma;
+}
+
+.axis-label{
+    -fx-text-fill: #000;
+}
+
+
+
+.chart-symbol{
+    -fx-padding: 2px;
+}
+
+.chart-vertical-grid-lines {
+    -fx-stroke: -chart-grid-colour;
+}
+
+.chart-horizontal-grid-lines {
+    -fx-stroke: -chart-grid-colour;
+}
+
+#top-row{
+    -fx-background-color: gainsboro;
+}

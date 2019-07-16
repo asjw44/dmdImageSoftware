@@ -9,7 +9,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.ScatterChart;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,9 +20,6 @@ import javafx.scene.input.KeyCombination;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import sample.Graphs.GraphGenerator;
-import sample.Graphs.GraphHelper;
-import sample.Graphs.SeriesData;
 import sample.Model.SaveData;
 import sample.Model.Shapes.*;
 import sample.Model.Shapes.Rectangle;
@@ -33,7 +29,6 @@ import sample.Util.Hint;
 import sample.Util.WriteBMP;
 
 import java.awt.*;
-import java.awt.Menu;
 import java.awt.event.InputEvent;
 import java.io.File;
 import java.io.IOException;
@@ -70,6 +65,7 @@ public class Controller implements Initializable {
 
     @FXML private MenuItem menuViewCursor;
     @FXML private MenuItem menuViewGraph;
+    @FXML private MenuItem menuViewFourCore;
 
     @FXML private MenuItem menuHelpAbout;
     @FXML public static MenuItem menuHelpLocation;
@@ -151,6 +147,7 @@ public class Controller implements Initializable {
         //View
         menuViewCursor.setOnAction(event -> showCursorMenu());
         menuViewGraph.setOnAction(event -> showGraphMenu());
+        menuViewFourCore.setOnAction(event -> showFourCoreScan());
 
         //Help
         menuHelpAbout.setOnAction(event -> help());
@@ -358,6 +355,7 @@ public class Controller implements Initializable {
                             //ToDo: make set size not hard coded
                             SpreadFill fill = new SpreadFill(colour, RGB.OverlapType.Add, startX, startY, Integer.parseInt(shapeSizeWidth.getText()), Integer.parseInt(shapeSizeHeight.getText()), Integer.parseInt(doughnutOffset.getText()));
                             fill.setSize(20);
+                            return fill;
                         default:
                             return null;
                     }
@@ -539,9 +537,6 @@ public class Controller implements Initializable {
                 }
             }
         }
-
-
-
     }
 
     private void save(){
@@ -701,20 +696,33 @@ public class Controller implements Initializable {
     }
 
     private void showGraphMenu(){
-        GraphGenerator g = new GraphGenerator();
-        g.setTitle("Test")
-                .setxLabel("xLabel")
-                .setyLabel("yLabel")
-                .addData(new SeriesData(new int[]{0,1,2,4,9}),"square")
-                .addEquation(GraphHelper.generateAxisInt(0, 5, 1), x -> x,"Linear");
-        ScatterChart<Number,Number> chart = g.getScatterChart();
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("graph.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Graph");
+            Scene scene = new Scene(root, 600,400);
+            scene.getStylesheets().add(getClass().getResource("graph1.css").toExternalForm());
+            stage.setScene(scene);
+            //stage.setAlwaysOnTop(true);
+            stage.show();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
 
+    }
 
-        Stage stage = new Stage();
-        stage.setTitle("Graph");
-        stage.setScene(new Scene(chart,300,300));
-        stage.setAlwaysOnTop(true);
-        stage.show();
+    private void showFourCoreScan(){
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("fourCoreScan.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Four core scan");
+            Scene scene = new Scene(root, 750,550);
+            scene.getStylesheets().add(getClass().getResource("graph1.css").toExternalForm());
+            stage.setScene(scene);
+            stage.show();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     //=============================Help Menu===========================
@@ -722,9 +730,9 @@ public class Controller implements Initializable {
     private void help(){
         Alert about = new Alert(Alert.AlertType.INFORMATION);
         about.setTitle("About");
-        about.setHeaderText("DMD Image Software\nCreated by Andrew Wood. Copyright 2018.\n\n" +
+        about.setHeaderText("DMD Image Software\nCreated by Andrew Wood. Copyright 2019.\n\n" +
                 "Created for use at the Optoelectronics Research Centre,\nSouthampton University");
-        about.setContentText("Version:\t0.2.1\n\nLibraries used:\nxStream 1.4.10");
+        about.setContentText("Version:\t0.3.1\n\nLibraries used:\nxStream 1.4.10");
         about.showAndWait();
     }
 

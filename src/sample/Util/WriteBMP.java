@@ -86,7 +86,7 @@ public class WriteBMP {
 
                     img.setRGB(i,j,rgb);
                 }
-            }ImageIO.write(img,"BMP",new java.io.File(imageDirectory + "images/" + bmpData.getImageName() + ".bmp"));
+            }ImageIO.write(img,"BMP",new java.io.File(imageDirectory  + bmpData.getImageName() + ".bmp"));
         }else{
             System.out.println("Array sizes are not the same. Cannot print them out");
         }

@@ -41,6 +41,7 @@
               <items>
                 <MenuItem fx:id="menuViewCursor" mnemonicParsing="false" text="Cursor" />
                 <MenuItem fx:id="menuViewGraph" mnemonicParsing="false" text="Graph"/>
+                  <MenuItem fx:id="menuViewFourCore" mnemonicParsing="false" text="Four Core"/>
               </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Help">

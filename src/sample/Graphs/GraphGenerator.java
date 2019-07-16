@@ -1,13 +1,13 @@
 package sample.Graphs;
 
+import javafx.scene.chart.Axis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.ScatterChart;
-import javafx.scene.chart.XYChart;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.paint.Paint;
+import javafx.scene.chart.XYChart.Series;
 
 import java.util.ArrayList;
+
+import static javafx.scene.chart.XYChart.*;
 
 public class GraphGenerator {
 
@@ -20,6 +20,10 @@ public class GraphGenerator {
 
     public interface Equation{
         Number createEquation(double x);
+    }
+
+    public interface SeriesClicked{
+        void onSeriesClicked(int dataId, Data data);
     }
 
     public GraphGenerator(){
@@ -66,19 +70,57 @@ public class GraphGenerator {
     }
 
     public ScatterChart<Number,Number> getScatterChart(){
-        ScatterChart<Number, Number> chart = new ScatterChart<>(new NumberAxis(),new NumberAxis());
-        chart.setBackground(new Background(new BackgroundFill(Paint.valueOf("#000000"),null,null)));
+        return scatterInternal(new ScatterChart<>(new NumberAxis(),new NumberAxis()), null);
+
+    }
+
+    public void writeChart(ScatterChart<Number,Number> chart, SeriesClicked seriesClicked){
+        scatterInternal(chart, seriesClicked);
+    }
+
+    private ScatterChart<Number,Number> scatterInternal(ScatterChart<Number, Number> chart,final SeriesClicked seriesClicked){
         chart.setTitle(title);
         chart.getXAxis().setLabel(xLabel);
         chart.getYAxis().setLabel(yLabel);
+
+        chart.setAnimated(false);
+
         for(int i=0;i<axisData.size();i++){
-            XYChart.Series dataSeries = new XYChart.Series();
+            Series dataSeries = new Series();
+
+            dataSeries.setName(axisKeys.get(i));
+
+            chart.getData().add(dataSeries);
+
+            final int iInner = chart.getData().size()-1;
+
             for(int j=0;j<axisData.get(i).getxAxis().size();j++){
-                XYChart.Data data = new XYChart.Data(axisData.get(i).getxAxis().get(j),axisData.get(i).getyAxis().get(j));
+                final Data data = new Data(axisData.get(i).getxAxis().get(j),axisData.get(i).getyAxis().get(j));
                 dataSeries.getData().add(data);
-                dataSeries.setName(axisKeys.get(i));
-            }chart.getData().addAll(dataSeries);
-        }return chart;
+                data.getNode().setOnMouseClicked(event -> {
+                    if(seriesClicked != null){
+                        seriesClicked.onSeriesClicked(iInner, data);
+                    }
+                });
+            }
+        }
+
+        chart.getXAxis().setAutoRanging(true);
+
+        for(Axis.TickMark<Number> t : chart.getXAxis().getTickMarks()){
+            t.setValue(t.getValue().intValue() * 3);
+
+            t.setLabel(t.getValue().toString() + " L");
+
+            System.out.println(t.getValue().toString() + "\t" + t.getLabel() + "\t" + t.getPosition());
+        }
+        return chart;
+    }
+
+    public void clearAll(ScatterChart<Number, Number> chart){
+        chart.getData().clear();
+        axisData = new ArrayList<>();
+        axisKeys = new ArrayList<>();
     }
 
 
