@@ -7,31 +7,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Controllers/ErrorPopup.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Controllers/FourCoreScanController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Controllers/GenerateAttenuatorController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Controllers/GraphController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Controllers/fourCoreScan.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Controllers/graph.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Controllers/graph1.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Model/Helper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Model/PowerMeterData.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Util/CssToColorHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DMD Image Software/sample/Controllers/Controller$1.class" afterPath="$PROJECT_DIR$/out/production/DMD Image Software/sample/Controllers/Controller$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DMD Image Software/sample/Controllers/Controller.class" afterPath="$PROJECT_DIR$/out/production/DMD Image Software/sample/Controllers/Controller.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/jcodec_0_2_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/jcodec_javase_0_2_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Controllers/generateAttenuator.fxml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Model/IterationModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Util/MovieGenerator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Util/TimeHelper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DMD Image Software/sample/Main.class" afterPath="$PROJECT_DIR$/out/production/DMD Image Software/sample/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DMD Image Software/sample/Util/Iterator$ExitCode.class" afterPath="$PROJECT_DIR$/out/production/DMD Image Software/sample/Util/Iterator$ExitCode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DMD Image Software/sample/Util/Iterator.class" afterPath="$PROJECT_DIR$/out/production/DMD Image Software/sample/Util/Iterator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DMD Image Software/sample/Util/WriteBMP$1.class" afterPath="$PROJECT_DIR$/out/production/DMD Image Software/sample/Util/WriteBMP$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DMD Image Software/sample/Util/WriteBMP$RescaleType.class" afterPath="$PROJECT_DIR$/out/production/DMD Image Software/sample/Util/WriteBMP$RescaleType.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DMD Image Software/sample/Util/WriteBMP.class" afterPath="$PROJECT_DIR$/out/production/DMD Image Software/sample/Util/WriteBMP.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DMD Image Software/sample/Controllers/sample.fxml" afterPath="$PROJECT_DIR$/out/production/DMD Image Software/sample/Controllers/sample.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Controllers/Controller.java" afterPath="$PROJECT_DIR$/src/sample/Controllers/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Controllers/sample.fxml" afterPath="$PROJECT_DIR$/src/sample/Controllers/sample.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Graphs/GraphGenerator.java" afterPath="$PROJECT_DIR$/src/sample/Graphs/GraphGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DMD Image Software.iml" afterPath="$PROJECT_DIR$/DMD Image Software.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main.java" afterPath="$PROJECT_DIR$/src/sample/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Model/Shapes/SpreadFill.java" afterPath="$PROJECT_DIR$/src/sample/Model/Shapes/SpreadFill.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Util/Iterator.java" afterPath="$PROJECT_DIR$/src/sample/Util/Iterator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Util/ReadFile.java" afterPath="$PROJECT_DIR$/src/sample/Util/ReadFile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Util/WriteBMP.java" afterPath="$PROJECT_DIR$/src/sample/Util/WriteBMP.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -90,14 +78,78 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="36" column="42" lean-forward="false" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
+            <state relative-caret-position="297">
+              <caret line="52" column="65" lean-forward="false" selection-start-line="52" selection-start-column="65" selection-end-line="52" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MovieGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Util/MovieGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="51" column="9" lean-forward="false" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimeHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Util/TimeHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IterationModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Model/IterationModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rectangle.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Model/Shapes/Rectangle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WriteBMP.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Util/WriteBMP.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1110">
+              <caret line="80" column="52" lean-forward="false" selection-start-line="80" selection-start-column="52" selection-end-line="80" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Iterator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Util/Iterator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2865">
+              <caret line="201" column="61" lean-forward="false" selection-start-line="201" selection-start-column="61" selection-end-line="201" selection-end-column="61" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -112,74 +164,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Spread trial.bmp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Spread trial.bmp">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Util/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="46" lean-forward="false" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
+            <state relative-caret-position="30">
+              <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Canvas.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Model/Canvas.java">
+      <file leaf-file-name="generateAttenuator.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Controllers/generateAttenuator.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddShapeController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/Controllers/AddShapeController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2680">
-              <caret line="81" column="71" lean-forward="true" selection-start-line="81" selection-start-column="71" selection-end-line="81" selection-end-column="71" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SpreadFill.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Model/Shapes/SpreadFill.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4665">
-              <caret line="323" column="9" lean-forward="false" selection-start-line="323" selection-start-column="9" selection-end-line="323" selection-end-column="9" />
-              <folding>
-                <element signature="e#5286#5287#0" expanded="true" />
-                <element signature="e#5332#5333#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="spreadBlock_2.0_seed_1000_square_40.bmp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_1000_square_40.bmp">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="spreadBlock_2.0_seed_1000_square_1.bmp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_1000_square_1.bmp">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="spreadBlock_2.0_seed_1000_square_12.bmp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_1000_square_12.bmp">
-          <provider selected="true" editor-type-id="images">
-            <state />
           </provider>
         </entry>
       </file>
@@ -217,9 +221,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/sample/Model/Shapes/Triangle.java" />
-        <option value="$PROJECT_DIR$/src/sample/Util/Geometry.java" />
-        <option value="$PROJECT_DIR$/src/sample/Util/Tooltips.java" />
         <option value="$PROJECT_DIR$/src/sample/Util/Hint.java" />
         <option value="$PROJECT_DIR$/src/sample/Model/SaveData.java" />
         <option value="$PROJECT_DIR$/src/sample/Controllers/cursor.fxml" />
@@ -264,10 +265,13 @@
         <option value="$PROJECT_DIR$/src/sample/Controllers/GenerateAttenuatorController.java" />
         <option value="$PROJECT_DIR$/src/sample/Util/Iterator.java" />
         <option value="$PROJECT_DIR$/src/sample/Controllers/Controller.java" />
-        <option value="$PROJECT_DIR$/src/sample/Util/WriteBMP.java" />
         <option value="$PROJECT_DIR$/src/sample/Model/Shapes/SpreadFill.java" />
-        <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/sample/Util/ReadFile.java" />
+        <option value="$PROJECT_DIR$/src/sample/Util/WriteBMP.java" />
+        <option value="$PROJECT_DIR$/src/sample/Model/IterationModel.java" />
+        <option value="$PROJECT_DIR$/src/sample/Util/MovieGenerator.java" />
+        <option value="$PROJECT_DIR$/src/sample/Util/TimeHelper.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main.java" />
       </list>
     </option>
   </component>
@@ -297,8 +301,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -364,7 +366,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -383,7 +387,7 @@
     <property name="dynamic.classpath" value="false" />
     <property name="full.screen.before.presentation.mode" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/xstream-distribution-1.4.10-bin/xstream-1.4.10/lib/xstream/xmlpull-1.1.3.1.jar!/" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -640,7 +644,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548164253089</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added Graph controller and small changes">
+      <created>1563282848486</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1563282848487</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -657,7 +668,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -667,11 +677,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31922612" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292011" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22389127" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2267525" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -705,7 +715,8 @@
     <MESSAGE value="Added SpreadFill along with random functionality" />
     <MESSAGE value="Added vector functionality" />
     <MESSAGE value="Added graphs and read abilities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added graphs and read abilities" />
+    <MESSAGE value="Added Graph controller and small changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Graph controller and small changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -718,199 +729,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/src.zip!/javafx.base/javafx/beans/value/ChangeListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="62" column="9" lean-forward="false" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Graphs/GraphGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Images/circle_5.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/fourCoreScan.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="123" column="59" lean-forward="false" selection-start-line="123" selection-start-column="59" selection-end-line="123" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/circles/circles_9.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/circles/circles_0.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spread_0.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/circles/circles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="344" column="46" lean-forward="false" selection-start-line="344" selection-start-column="46" selection-end-line="344" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Model/Shapes/Ellipse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Util/ArrayHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#219#220#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Model/AbstractImage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Model/Shapes/RGB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding>
-            <element signature="e#938#939#0" expanded="false" />
-            <element signature="e#989#990#0" expanded="false" />
-            <element signature="e#1022#1023#0" expanded="false" />
-            <element signature="e#1074#1075#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/GenerateAttenuatorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27">
-          <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/FourCoreScanController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="253" column="33" lean-forward="false" selection-start-line="253" selection-start-column="33" selection-end-line="253" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#10454#10455#0" expanded="false" />
-            <element signature="e#10494#10495#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Util/VectorIterator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="105" column="17" lean-forward="false" selection-start-line="105" selection-start-column="17" selection-end-line="105" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Util/Iterator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-87">
-          <caret line="91" column="20" lean-forward="true" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spread_3.0_seed_100_square_400.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spread_1.5_seed_100_square_400.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spread_2.0_seed_100_square_400.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Spread.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/lib/src.zip!/javafx.graphics/javafx/stage/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1910">
-          <caret line="1571" column="0" lean-forward="false" selection-start-line="1571" selection-start-column="0" selection-end-line="1571" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_200_square_20.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_200_square_10.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_100_square_20.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_200_square_200.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_200_square_100.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_200_square_50.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_200_square_10.bmp" />
+    <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_100_square_20.bmp" />
+    <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_200_square_200.bmp" />
+    <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_200_square_100.bmp" />
+    <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_200_square_50.bmp" />
     <entry file="file://$PROJECT_DIR$/src/sample/Model/Shapes/AbstractShape.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -918,33 +741,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spread_2.0_seed_200_square_50.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spread_2.0_seed_200_square_500.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spread_2.0_seed_300_square_500.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/spread_2.0_seed_200_square_50.bmp" />
+    <entry file="file://$PROJECT_DIR$/spread_2.0_seed_200_square_500.bmp" />
+    <entry file="file://$PROJECT_DIR$/spread_2.0_seed_300_square_500.bmp" />
     <entry file="file://$PROJECT_DIR$/main_text_cpy.rtf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Util/WriteBMP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-723">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -957,7 +760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="55" column="9" lean-forward="false" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -965,62 +767,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="12" column="11" lean-forward="false" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-          <folding>
-            <element signature="e#258#259#0" expanded="false" />
-            <element signature="e#294#295#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_1000_square_4.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_1000_square_12.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_1000_square_40.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_1000_square_1.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_1000_square_4.bmp" />
+    <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_1000_square_12.bmp" />
+    <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_1000_square_40.bmp" />
+    <entry file="file://$PROJECT_DIR$/spreadBlock_2.0_seed_1000_square_1.bmp" />
     <entry file="file://$PROJECT_DIR$/src/sample/Model/Shapes/SpreadFill.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4665">
           <caret line="323" column="9" lean-forward="false" selection-start-line="323" selection-start-column="9" selection-end-line="323" selection-end-column="9" />
           <folding>
-            <element signature="e#5286#5287#0" expanded="true" />
-            <element signature="e#5332#5333#0" expanded="true" />
+            <element signature="e#5286#5287#0" expanded="false" />
+            <element signature="e#5332#5333#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Spread trial.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Util/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="46" lean-forward="false" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spreadBlock_10.0_seed_1000_square_2.bmp">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/spreadBlock_10.0_seed_1000_square_2.bmp" />
     <entry file="file://$PROJECT_DIR$/spreadBlock_8.6_seed_1000_square_2.bmp" />
     <entry file="file://$PROJECT_DIR$/src/sample/Util/ReadFile.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1030,13 +795,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Model/Canvas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="36" column="42" lean-forward="false" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
+        <state relative-caret-position="144">
+          <caret line="39" column="11" lean-forward="false" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1151#1152#0" expanded="false" />
+            <element signature="e#1226#1227#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Spread trial.bmp" />
+    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/AddShapeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="81" column="71" lean-forward="false" selection-start-line="81" selection-start-column="71" selection-end-line="81" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test for block scan.bmp">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test for block scan2.bmp">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Block_scan_0_left.bmp" />
+    <entry file="file://$PROJECT_DIR$/Block_scan_0_right.bmp" />
+    <entry file="file://$PROJECT_DIR$/Block_scan_1_left.bmp" />
+    <entry file="file://$PROJECT_DIR$/Block_scan_1_right.bmp" />
+    <entry file="file://$PROJECT_DIR$/Block_scan_39_left.bmp" />
+    <entry file="file://$PROJECT_DIR$/Block_scan_39_right.bmp" />
+    <entry file="file://$PROJECT_DIR$/Block_scan_00_rectangle.bmp" />
+    <entry file="file://$PROJECT_DIR$/Block_scan_00_rectangle_large40.bmp" />
+    <entry file="file://$PROJECT_DIR$/Block_scan_00_rectangle_small40.bmp" />
+    <entry file="file://$PROJECT_DIR$/src/sample/Util/Iterator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2865">
+          <caret line="201" column="61" lean-forward="false" selection-start-line="201" selection-start-column="61" selection-end-line="201" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/generateAttenuator.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Block_scan_8080_rectangle.bmp" />
+    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2990">
+          <caret line="110" column="37" lean-forward="false" selection-start-line="110" selection-start-column="37" selection-end-line="110" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1048,19 +870,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Model/Canvas.java">
+    <entry file="file://$PROJECT_DIR$/Block_scan_8080_rectangle_short.bmp" />
+    <entry file="file://$PROJECT_DIR$/src/sample/Model/Shapes/Rectangle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="90">
+          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/AddShapeController.java">
+    <entry file="jar://$USER_HOME$/Downloads/jcodec-0.2.3.jar!/org/jcodec/common/model/Rational.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2680">
-          <caret line="81" column="71" lean-forward="true" selection-start-line="81" selection-start-column="71" selection-end-line="81" selection-end-column="71" />
+        <state relative-caret-position="179">
+          <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/jcodec-0.2.3.jar!/org/jcodec/common/Format.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/jcodec-javase-0.2.3.jar!/org/jcodec/api/awt/AWTSequenceEncoder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="43" column="16" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Util/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Util/WriteBMP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="80" column="52" lean-forward="false" selection-start-line="80" selection-start-column="52" selection-end-line="80" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Model/IterationModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Util/TimeHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Util/MovieGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="51" column="9" lean-forward="false" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="52" column="65" lean-forward="false" selection-start-line="52" selection-start-column="65" selection-end-line="52" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1071,8 +961,8 @@
         <settings>
           <artifact-editor>
             <show-content>
-              <type id="library" />
               <type id="artifact" />
+              <type id="library" />
             </show-content>
           </artifact-editor>
           <last-edited>DMD Image Software:jar</last-edited>
@@ -1128,7 +1018,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -1136,6 +1025,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>jcodec-javase-0.2.3</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

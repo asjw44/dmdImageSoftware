@@ -7,7 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import sample.Model.Canvas;
-import sample.Model.Shapes.AbstractShape;
+import sample.Model.IterationModel;
 import sample.Model.Shapes.RGB;
 import sample.Model.Shapes.Rectangle;
 import sample.Model.Shapes.SpreadFill;
@@ -15,6 +15,7 @@ import sample.Util.Vector2;
 import sample.Util.*;
 
 import java.io.IOException;
+import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -37,10 +38,68 @@ public class Main extends Application {
         int height = Constants.DMD_HEIGHT;
         final int constant = 220;
 
+        int squareWidth = 160;
+        int squareHeight = 160;
+
         WriteBMP.RescaleType rescaleType = WriteBMP.RescaleType.START;
+
+        int startX = width/2 - squareWidth/2;
+        int startY = height/2 - squareHeight/2;
+
+        /*Canvas canvas = new Canvas("Block_scan_8080_rectangle_short");
+        Rectangle rectangle = new Rectangle(RGB.white(), RGB.OverlapType.Add, startX, startY, squareWidth, 126);
+        canvas.addShape(rectangle);
+        if(canvas.drawShapes()){
+            WriteBMP.getInstance().printBMP(canvas, rescaleType);
+        }*/
+
+        IterationModel iterationModel = new IterationModel("test.mp4",false);
+        iterationModel.fps = 60;
+        iterationModel.start_x = 10;
+        iterationModel.start_y = 10;
+        iterationModel.iterationI = 180;
+        iterationModel.iterationJ = 10;
+
+        MovieGenerator.getInstance().generateMovie(iterationModel);
+
+
+        /*for(int j = 0; j < squareHeight / 2;j++){
+            ArrayList<Canvas> canvases = new ArrayList<>();
+            String jString = "";
+            if(j < 10){
+                jString = "0" + j;
+            }else{
+                jString += j;
+            }
+            canvases.add(new Canvas("Block_scan_8080_" + jString + "_01"));
+            canvases.add(new Canvas("Block_scan_8080_" + jString + "_02"));
+            canvases.add(new Canvas("Block_scan_8080_" + jString + "_03"));
+            canvases.add(new Canvas("Block_scan_8080_" + jString + "_04"));
+            for(int i = 0; i < Constants.BIT_DEPTH.length; i++){
+                for(int k = 0; k < 3; k++){
+                    canvases.get(k).addShape(new Rectangle(new RGB(BMPData.Colour.Red, Constants.BIT_DEPTH[i]), RGB.OverlapType.Add, startX + k * 48 + i * 2, startY + j*2, 2,2));
+                    canvases.get(k).addShape(new Rectangle(new RGB(BMPData.Colour.Green, Constants.BIT_DEPTH[i]), RGB.OverlapType.Add, startX + k * 48 + 16 + i * 2, startY+ j*2, 2,2));
+                    canvases.get(k).addShape(new Rectangle(new RGB(BMPData.Colour.Blue, Constants.BIT_DEPTH[i]), RGB.OverlapType.Add, startX + k * 48 + 32 + i * 2, startY+ j*2, 2,2));
+                }
+
+                canvases.get(3).addShape(new Rectangle(new RGB(BMPData.Colour.Red, Constants.BIT_DEPTH[i]), RGB.OverlapType.Add, startX + 48 * 3 + i * 2, startY+ j*2, 2,2));
+                canvases.get(3).addShape(new Rectangle(new RGB(BMPData.Colour.Green, Constants.BIT_DEPTH[i]), RGB.OverlapType.Add, startX + 48 * 3 + 16 + i * 2, startY+ j*2, 2,2));
+                canvases.get(3).addShape(new Rectangle(new RGB(BMPData.Colour.Blue, Constants.BIT_DEPTH[i]), RGB.OverlapType.Add, startX, startY, squareWidth,squareHeight));
+            }
+            for(Canvas canvas : canvases){
+                if(canvas.drawShapes()){
+                    WriteBMP.getInstance().printBMP(canvas, rescaleType);
+                }else{
+                    System.err.println("Issue with printing bmp");
+                }
+            }
+        }/*
+
+
+
+
         //double fillFactor = 2;
         //int seed = 100;
-        int square_size = 500;
 
         //generate(fillFactor,1000,1,rescaleType);
 

@@ -61,5 +61,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" exported="" name="jcodec-0.2.3" level="project" />
+    <orderEntry type="library" exported="" name="jcodec-javase-0.2.3" level="project" />
   </component>
 </module>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.GenerateAttenuatorController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
+               <children>
+                  <Label text="Core 1    ">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label text="x:" />
+                  <TextField fx:id="c1x" prefHeight="27.0" prefWidth="64.0" />
+                  <Label text="y:" />
+                  <TextField fx:id="c1y" prefHeight="27.0" prefWidth="64.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
+               <children>
+                  <Label text="Core 2   ">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label text="x:" />
+                  <TextField fx:id="c2x" prefHeight="27.0" prefWidth="64.0" />
+                  <Label text="y:" />
+                  <TextField fx:id="c2y" prefHeight="27.0" prefWidth="64.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
+               <children>
+                  <Label text="Core 3   ">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label text="x:" />
+                  <TextField fx:id="c3x" prefHeight="27.0" prefWidth="64.0" />
+                  <Label text="y:" />
+                  <TextField fx:id="c3y" prefHeight="27.0" prefWidth="64.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="750.0" spacing="10.0">
+               <children>
+                  <Label text="Core 4   ">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label text="x:" />
+                  <TextField fx:id="c4x" prefHeight="27.0" prefWidth="64.0" />
+                  <Label text="y:" />
+                  <TextField fx:id="c4y" prefHeight="27.0" prefWidth="64.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="writeAttenuators" mnemonicParsing="false" text="Write" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
