@@ -29,7 +29,6 @@ public class Canvas extends BMPData{
                 }
             }
         }
-
         setAllColours(arr);
     }
 
@@ -39,6 +38,16 @@ public class Canvas extends BMPData{
 
     public Canvas(String imageName) {
         super(imageName, Constants.DMD_WIDTH, Constants.DMD_HEIGHT);
+    }
+
+    public Canvas(){
+        super("",Constants.DMD_WIDTH, Constants.DMD_HEIGHT);
+    }
+
+    public void reset(){
+        setColourArray(Colour.Red, ArrayHelper.zeroes(width,height));
+        setColourArray(Colour.Green, ArrayHelper.zeroes(width,height));
+        setColourArray(Colour.Blue, ArrayHelper.zeroes(width,height));
     }
 
     public void addShape(AbstractShape abstractShape){
