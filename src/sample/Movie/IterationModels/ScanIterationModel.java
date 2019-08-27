@@ -1,4 +1,4 @@
-package sample.Movie;
+package sample.Movie.IterationModels;
 
 import org.jcodec.api.awt.AWTSequenceEncoder;
 import sample.Model.Canvas;

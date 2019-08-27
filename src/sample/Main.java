@@ -10,6 +10,8 @@ import sample.Model.Canvas;
 import sample.Movie.*;
 import sample.Model.Shapes.RGB;
 import sample.Model.Shapes.SpreadFill;
+import sample.Movie.IterationModels.ScanStaticIterationModel;
+import sample.Movie.IterationModels.StaticIterationModel;
 import sample.Util.*;
 
 import java.io.IOException;
@@ -34,9 +36,9 @@ public class Main extends Application {
         int height = Constants.DMD_HEIGHT;
         final int constant = 220;
 
-        int squareWidth = 250;
-        int squareHeight = 250;
-        int fps = 10;
+        int squareWidth = 20;
+        int squareHeight = 20;
+        int fps = 50;
 
         WriteBMP.RescaleType rescaleType = WriteBMP.RescaleType.START;
 
@@ -50,9 +52,12 @@ public class Main extends Application {
             WriteBMP.getInstance().printBMP(canvas, rescaleType);
         }*/
 
+        //ToDo: 4x4, 10x10, much larger blocks, 10 fps, 200ms as well? More frames if need be?
 
 
-        MovieData movieData = new MovieData(squareWidth + "x" + squareHeight + "_" + fps + "fps_w_allOn.mp4", false);
+        createMovie(20,20,2,2,60,0.5,2);
+
+        /*MovieData movieData = new MovieData(squareWidth + "x" + squareHeight + "_" + fps + "fps_w_allOn_1.mp4", false);
         movieData.rescaleType = WriteBMP.RescaleType.START;
         movieData.fps = fps;
 
@@ -72,10 +77,45 @@ public class Main extends Application {
 
         movieData.setAbstractIterationModels(staticIterationModel,model,staticIterationModel);
 
-        MovieGenerator.getInstance().generateMovie(movieData);
+        MovieGenerator.getInstance().generateMovie(movieData);*/
 
 
         System.out.println("\nMain class code complete.");
+
+    }
+
+    private static void createMovie(int blockWidth, int blockHeight, int width, int height, int fps, double pauseTime, double paddingTime){
+        String name = String.format("%dx%d_%d-fps_%dx%d-blocks_%.1f-padding_%.1f-pause.mp4",blockWidth,blockHeight,fps,width,height,paddingTime,pauseTime);
+
+        int dmdWidth = Constants.DMD_WIDTH;
+        int dmdHeight = Constants.DMD_HEIGHT;
+
+        int startX = dmdWidth/2 - blockWidth/2;
+        int startY = dmdHeight/2 - blockHeight/2;
+
+        MovieData movieData = new MovieData(name,false);
+        movieData.rescaleType = WriteBMP.RescaleType.START;
+        movieData.fps = fps;
+
+        StaticIterationModel staticIterationModel = new StaticIterationModel();
+        staticIterationModel.start_x = startX;
+        staticIterationModel.start_y = startY;
+        staticIterationModel.width = blockWidth;
+        staticIterationModel.height = blockHeight;
+        staticIterationModel.timeOnScreen = paddingTime;
+
+        ScanStaticIterationModel model = new ScanStaticIterationModel();
+        model.start_x = startX;
+        model.start_y = startY;
+        model.iterationI = blockWidth / width;
+        model.iterationJ = blockHeight / height;
+        model.width = width;
+        model.height = height;
+        model.pauseTime = pauseTime;
+
+        movieData.setAbstractIterationModels(staticIterationModel,model,staticIterationModel);
+
+        MovieGenerator.getInstance().generateMovie(movieData);
 
     }
 

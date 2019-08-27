@@ -1,4 +1,4 @@
-package sample.Movie;
+package sample.Movie.IterationModels;
 
 import org.jcodec.api.awt.AWTSequenceEncoder;
 import sample.Model.Canvas;
@@ -61,7 +61,7 @@ public class ScanStaticIterationModel extends AbstractIterationModel {
 
     @Override
     public int getTotalFrames() {
-        totalFrames = iterationI * iterationJ + pauseTime > 0 ? (int)(pauseTime * movieData.fps) : 0;
+        totalFrames = iterationI * iterationJ + (pauseTime > 0 ? (int)(pauseTime * movieData.fps) * iterationJ : 0);
         return totalFrames;
     }
 }

@@ -1,5 +1,6 @@
 package sample.Movie;
 
+import sample.Movie.IterationModels.AbstractIterationModel;
 import sample.Util.WriteBMP;
 
 import java.util.ArrayList;
@@ -19,11 +20,6 @@ public class MovieData {
         }else{
             this.path = WriteBMP.imageDirectory + path;
         }
-    }
-
-    public void setAbstractIterationModels(ArrayList<AbstractIterationModel> abstractIterationModels) {
-        this.abstractIterationModels = abstractIterationModels;
-        giveThis();
     }
 
     public void setAbstractIterationModels(AbstractIterationModel... models){

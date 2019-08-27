@@ -4,6 +4,7 @@ import org.jcodec.api.awt.AWTSequenceEncoder;
 import org.jcodec.common.io.NIOUtils;
 import org.jcodec.common.io.SeekableByteChannel;
 import org.jcodec.common.model.Rational;
+import sample.Movie.IterationModels.AbstractIterationModel;
 import sample.Util.TimeHelper;
 
 import java.io.File;
